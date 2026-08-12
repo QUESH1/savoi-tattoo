@@ -1,7 +1,8 @@
-# Fotos brutas de referência (não usadas pelo site — as versões otimizadas ficam em images/)
+# Fotos/vídeos brutos de referência (não usados pelo site — as versões otimizadas ficam em images/ e videos/)
 /*.jpg
 /*.jpeg
 /*.png
+/*.mp4
 
 # Export de bundle (artefato gerado, não é código-fonte)
 Savoi Tattoo Landing Page.html
