@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte</title>
+<meta name="description" content="Savoi, tatuador especialista em blackwork e dark art em Belo Horizonte. Peças exclusivas, sob encomenda, sem flash e sem repetição. Estúdio na Rua Ceará, Santa Efigênia.">
+<link rel="canonical" href="https://SEU-DOMINIO-AQUI.com/">
+
+<!-- TODO: troque SEU-DOMINIO-AQUI.com pelo domínio real assim que o site for publicado -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Savoi Tattoo">
+<meta property="og:title" content="Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte">
+<meta property="og:description" content="Peças exclusivas, sob encomenda — sem flash, sem repetição. Blackwork e dark art em BH.">
+<meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://SEU-DOMINIO-AQUI.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte">
+<meta name="twitter:description" content="Peças exclusivas, sob encomenda — sem flash, sem repetição. Blackwork e dark art em BH.">
+<meta name="twitter:image" content="https://SEU-DOMINIO-AQUI.com/images/og-cover.jpg">
+
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="theme-color" content="#141210">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Oswald:wght@400;500;600;700&amp;family=Permanent+Marker&amp;display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Savoi Tattoo",
+  "image": "https://SEU-DOMINIO-AQUI.com/images/og-cover.jpg",
+  "telephone": "+5531996937655",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Ceará 621",
+    "addressLocality": "Belo Horizonte",
+    "addressRegion": "MG",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://www.instagram.com/savoi.ink",
+    "https://www.instagram.com/street_art.tattoo"
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#141210; --bg-alt:#191613; --bg-deep:#0f0d0c;
+    --fg:#f3eee7; --muted:#9c9690; --dim:#6f6a65; --accent:#d6301f;
+    --pad-x: clamp(20px, 6vw, 48px);
+    --pad-y: clamp(48px, 9vw, 72px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);font-family:'IBM Plex Mono',monospace;color:var(--fg);position:relative}
+  body::before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--fg)}
+  img{max-width:100%}
+
+  .btn{position:relative;overflow:hidden;font-size:12.5px;padding:13px 24px;border:1px solid var(--accent);color:var(--fg);display:inline-block;z-index:0;transition:color .35s ease,border-color .35s ease}
+  .btn::before{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.65,0,.35,1);z-index:-1}
+  .btn:hover{color:var(--fg)}
+  .btn:hover::before{transform:scaleX(1)}
+  .btn-ghost{border-color:rgba(255,255,255,.2)}
+  .btn-ghost::before{background:rgba(255,255,255,.12)}
+
+  .polaroid{background:#e9e4da;padding:10px 10px 34px;box-shadow:0 10px 26px rgba(0,0,0,.55);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease}
+  .polaroid-frame{position:relative;width:100%;padding-top:125%;overflow:hidden;display:block}
+  .polaroid-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.15);transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .5s ease}
+  .polaroid:hover{box-shadow:0 18px 38px rgba(0,0,0,.6)}
+  .polaroid:hover img{transform:scale(1.06);filter:grayscale(0)}
+  .tape{position:absolute;height:22px;background:rgba(230,220,150,.55);border:1px solid rgba(0,0,0,.08)}
+
+  .nav{position:sticky;top:0;z-index:61;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:clamp(14px,3vw,28px);padding:clamp(12px,3vw,18px) var(--pad-x);background:rgba(20,18,16,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.1);transition:padding .3s ease,box-shadow .3s ease}
+  .nav.is-scrolled{padding-top:10px;padding-bottom:10px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .nav a{position:relative;font-size:12px;color:var(--muted)}
+  .nav a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:var(--accent);transition:right .3s ease}
+  .nav a:not(.btn):hover::after{right:0}
+  .nav a.btn{font-size:11.5px;color:var(--fg)}
+
+  .hero{position:relative;display:flex;align-items:center;min-height:clamp(420px,70vh,660px);padding:0 var(--pad-x);overflow:hidden;background:var(--bg-deep)}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;filter:grayscale(.3) contrast(1.1);will-change:transform}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,13,12,.96) 30%,rgba(15,13,12,.55) 75%)}
+  .hero-content{position:relative;max-width:600px;display:flex;flex-direction:column;gap:18px;padding:64px 0}
+  .hero-content>*{opacity:0;transform:translateY(16px);animation:rise .7s ease forwards}
+  .hero-content>*:nth-child(1){animation-delay:.05s}
+  .hero-content>*:nth-child(2){animation-delay:.15s}
+  .hero-content>*:nth-child(3){animation-delay:.28s}
+  .hero-content>*:nth-child(4){animation-delay:.42s}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .hero-title{font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(46px,9vw,92px);line-height:.95;text-transform:uppercase;color:var(--fg);letter-spacing:-.01em}
+  .hero-text{font-size:14px;line-height:1.7;color:#c9c4be;max-width:420px}
+  .scroll-cue{position:absolute;left:var(--pad-x);bottom:22px;display:flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);animation:bob 2.2s ease-in-out infinite}
+  .scroll-cue::before{content:"";width:1px;height:20px;background:var(--dim)}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  .ticker{position:relative;overflow:hidden;background:var(--bg-deep);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:14px 0}
+  .ticker-track{display:flex;width:max-content;gap:0;animation:ticker 26s linear infinite}
+  .ticker span{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 22px;white-space:nowrap}
+  .ticker span em{color:var(--accent);font-style:normal;padding-right:22px}
+  @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .section{padding:var(--pad-y) var(--pad-x)}
+  .about{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:44px;align-items:center;border-bottom:1px solid rgba(255,255,255,.08)}
+  .about-photo{position:relative;width:100%;max-width:340px;margin:0 auto}
+  .about-text{font-size:15px;line-height:1.8;color:#c9c4be}
+
+  .section-title{font-family:Oswald,sans-serif;font-size:26px;text-transform:uppercase;color:var(--fg)}
+  .portfolio-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+  .portfolio-grid{display:grid;grid-template-columns:1fr;gap:clamp(28px,6vw,40px)}
+  @media (min-width:600px){
+    .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (min-width:980px){
+    .portfolio-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  .portfolio-grid .polaroid{max-width:420px;margin:0 auto;width:100%}
+
+  .processo{background:var(--bg-alt);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+  .steps{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:36px}
+  .step{position:relative;display:flex;flex-direction:column;gap:10px}
+  .step:not(:last-child)::after{content:"";position:absolute;top:14px;left:calc(100% + 16px);width:calc(32px - 16px);height:1px;background:repeating-linear-gradient(90deg,var(--dim) 0 4px,transparent 4px 8px)}
+  @media (max-width:640px){.step:not(:last-child)::after{display:none}}
+  .step-num{font-family:'Permanent Marker',cursive;font-size:22px;color:var(--accent);display:inline-block}
+  .step-title{font-family:Oswald,sans-serif;font-size:18px;text-transform:uppercase;color:var(--fg)}
+  .step-text{font-size:12.5px;line-height:1.7;color:var(--muted)}
+
+  .contato{position:relative;display:flex;flex-direction:column;gap:20px;align-items:flex-start;overflow:hidden}
+  .contato-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;filter:grayscale(.4)}
+  .contato-overlay{position:absolute;inset:0;background:rgba(15,13,12,.7)}
+  .contato-title{position:relative;font-family:Oswald,sans-serif;font-size:clamp(26px,5vw,34px);text-transform:uppercase;color:var(--fg)}
+  .contato-text{position:relative;font-size:13px;line-height:1.7;color:var(--muted);max-width:420px}
+  .contato-actions{position:relative;display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+  .contato-addr{position:relative;font-size:12px;color:var(--dim);margin-top:4px}
+
+  .footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:22px var(--pad-x);border-top:1px solid rgba(255,255,255,.08)}
+  .footer span{font-size:10.5px;color:var(--dim)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in-view{opacity:1;transform:translateY(0)}
+
+  @media (max-width: 520px){
+    .about-photo{max-width:280px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .hero-content>*{opacity:1;transform:none;animation:none}
+    .ticker-track{animation:none}
+    .scroll-cue{animation:none}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="btn" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar horário</a>
+  <a href="#processo">como funciona</a>
+  <a href="#portfolio">portfólio</a>
+  <a href="#contato">contato</a>
+</header>
+
+<main>
+  <section class="hero">
+    <img class="hero-bg" src="images/hero-bg.jpg" alt="" width="1440" height="1920">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="eyebrow">/ especialista em blackwork</div>
+      <h1 class="hero-title">Dark<br>art</h1>
+      <p class="hero-text">Artes grotescas pra gente estranha. Estúdio fixo aqui em BH, agenda aberta o ano inteiro.</p>
+      <a class="btn" style="align-self:flex-start;margin-top:8px;transform:rotate(-1deg)" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Marca sua tattoo, sô</a>
+    </div>
+    <span class="scroll-cue">role</span>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
+    </div>
+  </div>
+
+  <section class="section about reveal">
+    <div class="about-photo">
+      <div class="polaroid" style="transform:rotate(-3deg)">
+        <div class="polaroid-frame"><img src="images/about.jpg" alt="Savoi, tatuador" width="900" height="1200"></div>
+      </div>
+      <div class="tape" style="width:70px;top:-10px;left:20px;transform:rotate(-8deg)"></div>
+    </div>
+    <p class="about-text">Peças exclusivas, sob encomenda — sem flash, sem repetição. Trabalho a partir da referência de cada cliente, sempre em blackwork e dark art.</p>
+  </section>
+
+  <section id="portfolio" class="section">
+    <div class="portfolio-head reveal">
+      <h2 class="section-title">Portfólio</h2>
+      <a href="https://www.instagram.com/street_art.tattoo" target="_blank" rel="noopener" style="font-size:11px;color:var(--dim)">@street_art.tattoo</a>
+    </div>
+    <div class="portfolio-grid reveal">
+      <div class="polaroid" style="transform:rotate(-2deg)"><div class="polaroid-frame"><img src="images/portfolio-1.jpg" alt="peça blackwork 01" width="900" height="1200" loading="lazy" decoding="async"></div></div>
+      <div class="polaroid" style="transform:rotate(1.5deg)"><div class="polaroid-frame"><img src="images/portfolio-2.jpg" alt="peça blackwork 02" width="900" height="1200" loading="lazy" decoding="async"></div></div>
+      <div class="polaroid" style="transform:rotate(-1deg)"><div class="polaroid-frame"><img src="images/portfolio-3.jpg" alt="peça blackwork 03" width="900" height="1200" loading="lazy" decoding="async"></div></div>
+      <div class="polaroid" style="transform:rotate(2deg)"><div class="polaroid-frame"><img src="images/portfolio-4.jpg" alt="peça blackwork 04" width="900" height="1200" loading="lazy" decoding="async"></div></div>
+      <div class="polaroid" style="transform:rotate(-2.5deg)"><div class="polaroid-frame"><img src="images/portfolio-5.jpg" alt="peça blackwork 05" width="900" height="1200" loading="lazy" decoding="async"></div></div>
+      <div class="polaroid" style="transform:rotate(1deg)"><div class="polaroid-frame"><img src="images/portfolio-6.jpg" alt="peça dark art 06" width="900" height="1200" loading="lazy" decoding="async"></div></div>
+    </div>
+  </section>
+
+  <section id="processo" class="section processo reveal">
+    <h2 class="section-title">Como funciona</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num" style="transform:rotate(-3deg)">01</span>
+        <span class="step-title">Referência</span>
+        <span class="step-text">Manda sua ideia e referências pelo direct ou WhatsApp.</span>
+      </div>
+      <div class="step">
+        <span class="step-num" style="transform:rotate(2deg)">02</span>
+        <span class="step-title">Desenho</span>
+        <span class="step-text">Fecho o desenho exclusivo pra sua peça, sem repetir em ninguém.</span>
+      </div>
+      <div class="step">
+        <span class="step-num" style="transform:rotate(-2deg)">03</span>
+        <span class="step-title">Sessão</span>
+        <span class="step-text">Agenda no estúdio em BH e a gente risca.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section contato reveal">
+    <img class="contato-bg" src="images/hero-bg.jpg" alt="" width="1440" height="1920" loading="lazy">
+    <div class="contato-overlay"></div>
+    <h2 class="contato-title">Marca sua tattoo, sô</h2>
+    <p class="contato-text">Manda mensagem com sua ideia, referência de estilo e disponibilidade pra orçamento. Respondo por lá.</p>
+    <div class="contato-actions">
+      <a class="btn" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Orçamento no WhatsApp</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a>
+    </div>
+    <span class="contato-addr">Rua Ceará 621 — Santa Efigênia, Belo Horizonte MG</span>
+  </section>
+</main>
+
+<footer class="footer">
+  <span>Savoi — tatuador · <a href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a></span>
+  <span>Rua Ceará 621, Santa Efigênia — Belo Horizonte MG</span>
+</footer>
+
+<script>
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  }, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
+  }
+</script>
+
+</body>
+</html>

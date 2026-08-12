@@ -1,0 +1,7 @@
+# Fotos brutas de referência (não usadas pelo site — as versões otimizadas ficam em images/)
+/*.jpg
+/*.jpeg
+/*.png
+
+# Export de bundle (artefato gerado, não é código-fonte)
+Savoi Tattoo Landing Page.html
