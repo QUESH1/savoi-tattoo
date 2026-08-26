@@ -1,18 +1,20 @@
 # Savoi Tattoo
 
-Landing page do Savoi, tatuador especialista em blackwork e dark art em Belo Horizonte.
+Site do Savoi, tatuador de blackwork e dark art em Belo Horizonte.
 
-Site estático (HTML/CSS puro, sem build step) hospedado via GitHub Pages.
+Fiz em HTML e CSS puro, sem framework nem build, só pra treinar mesmo.
+Hospedado no GitHub Pages.
 
-## Estrutura
+## Arquivos
 
-- `index.html` — página única do site
-- `images/` — imagens otimizadas usadas pelo site
+- `index.html` — o site inteiro (html, css e js juntos)
+- `images/` — as fotos e imagens usadas no site
+- `videos/` — vídeo da seção "sobre"
 
-## Desenvolvimento local
+## Como rodar
 
-Basta abrir `index.html` no navegador — não há dependências ou processo de build.
+É só abrir o `index.html` no navegador, não precisa instalar nada.
 
 ## Licença
 
-Todos os direitos reservados — veja [LICENSE](LICENSE).
+Ver [LICENSE](LICENSE).
