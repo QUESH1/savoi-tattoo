@@ -8,7 +8,7 @@ Hospedado no GitHub Pages.
 ## Arquivos
 
 - `index.html` — o site inteiro (html, css e js juntos)
-- `images/` — as fotos e imagens usadas no site
+- `imagens/` — as fotos e imagens usadas no site
 - `videos/` — vídeo da seção "sobre"
 
 ## Como rodar

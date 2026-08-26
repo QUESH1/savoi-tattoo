@@ -11,9 +11,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte">
 <meta property="og:description" content="Peças exclusivas, sob encomenda — sem flash, sem repetição. Blackwork e dark art em BH.">
-<meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/images/og-cover.jpg">
+<meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/imagens/og-cover.jpg">
 
-<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" type="image/png" href="imagens/favicon.png">
 <link rel="theme-color" content="#141210">
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Oswald:wght@400;500;600;700&amp;family=Permanent+Marker&amp;display=swap" rel="stylesheet">
@@ -21,21 +21,21 @@
 <style>
   /* cores e espaçamento principal do site */
   :root {
-    --bg: #141210;
-    --bg-alt: #191613;
-    --bg-deep: #0f0d0c;
-    --fg: #f3eee7;
-    --muted: #9c9690;
-    --dim: #6f6a65;
-    --accent: #d6301f;
-    --pad-x: 20px;
-    --pad-y: 48px;
+    --fundo: #141210;
+    --fundo-alt: #191613;
+    --fundo-escuro: #0f0d0c;
+    --texto: #f3eee7;
+    --texto-suave: #9c9690;
+    --texto-fraco: #6f6a65;
+    --destaque: #d6301f;
+    --espaco-x: 20px;
+    --espaco-y: 48px;
   }
 
   @media (min-width: 700px) {
     :root {
-      --pad-x: 48px;
-      --pad-y: 72px;
+      --espaco-x: 48px;
+      --espaco-y: 72px;
     }
   }
 
@@ -49,73 +49,73 @@
 
   body {
     margin: 0;
-    background: var(--bg);
+    background: var(--fundo);
     font-family: 'IBM Plex Mono', monospace;
-    color: var(--fg);
+    color: var(--texto);
   }
 
   a {
-    color: var(--accent);
+    color: var(--destaque);
     text-decoration: none;
   }
   a:hover {
-    color: var(--fg);
+    color: var(--texto);
   }
 
   img {
     max-width: 100%;
   }
 
-  /* botao com efeito de preencher a cor no hover */
-  .btn {
+  /* botão com efeito de preencher a cor no hover */
+  .botao {
     position: relative;
     overflow: hidden;
     font-size: 12.5px;
     padding: 13px 24px;
-    border: 1px solid var(--accent);
-    color: var(--fg);
+    border: 1px solid var(--destaque);
+    color: var(--texto);
     display: inline-block;
     z-index: 0;
     transition: color .35s ease, border-color .35s ease;
   }
-  .btn::before {
+  .botao::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: var(--accent);
+    background: var(--destaque);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .35s ease;
     z-index: -1;
   }
-  .btn:hover {
-    color: var(--fg);
+  .botao:hover {
+    color: var(--texto);
   }
-  .btn:hover::before {
+  .botao:hover::before {
     transform: scaleX(1);
   }
-  .btn-ghost {
+  .botao-contorno {
     border-color: rgba(255, 255, 255, .2);
   }
-  .btn-ghost::before {
+  .botao-contorno::before {
     background: rgba(255, 255, 255, .12);
   }
 
-  /* fotos estilo polaroid do portfolio */
+  /* fotos estilo polaroid do portfólio */
   .polaroid {
     background: #e9e4da;
     padding: 10px 10px 34px;
     box-shadow: 0 10px 26px rgba(0, 0, 0, .55);
     transition: transform .4s ease, box-shadow .4s ease;
   }
-  .polaroid-frame {
+  .polaroid-moldura {
     position: relative;
     width: 100%;
     padding-top: 125%;
     overflow: hidden;
     display: block;
   }
-  .polaroid-frame img {
+  .polaroid-moldura img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -132,7 +132,7 @@
     filter: grayscale(0);
   }
 
-  .video-frame video {
+  .video-moldura video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -140,7 +140,7 @@
     object-fit: cover;
     background: #000;
   }
-  .play-btn {
+  .botao-tocar {
     position: absolute;
     inset: 0;
     margin: auto;
@@ -153,7 +153,7 @@
     cursor: pointer;
     transition: transform .25s ease, background .25s ease;
   }
-  .play-btn::after {
+  .botao-tocar::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -161,16 +161,16 @@
     transform: translate(-46%, -50%);
     border-style: solid;
     border-width: 9px 0 9px 15px;
-    border-color: transparent transparent transparent var(--fg);
+    border-color: transparent transparent transparent var(--texto);
   }
-  .play-btn:hover {
-    background: var(--accent);
+  .botao-tocar:hover {
+    background: var(--destaque);
     transform: scale(1.08);
   }
-  .play-btn.is-hidden {
+  .botao-tocar.escondido {
     display: none;
   }
-  .tape {
+  .fita {
     position: absolute;
     height: 22px;
     background: rgba(230, 220, 150, .55);
@@ -178,7 +178,7 @@
   }
 
   /* menu fixo no topo */
-  .nav {
+  .menu {
     position: sticky;
     top: 0;
     z-index: 61;
@@ -187,54 +187,54 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 18px;
-    padding: 16px var(--pad-x);
+    padding: 16px var(--espaco-x);
     background: rgba(20, 18, 16, .96);
     border-bottom: 1px solid rgba(255, 255, 255, .1);
     transition: padding .3s ease, box-shadow .3s ease;
   }
-  .nav.is-scrolled {
+  .menu.rolado {
     padding-top: 10px;
     padding-bottom: 10px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
   }
-  .nav a {
+  .menu a {
     position: relative;
     font-size: 12px;
-    color: var(--muted);
+    color: var(--texto-suave);
   }
-  .nav a:not(.btn)::after {
+  .menu a:not(.botao)::after {
     content: "";
     position: absolute;
     left: 0;
     right: 100%;
     bottom: -4px;
     height: 1px;
-    background: var(--accent);
+    background: var(--destaque);
     transition: right .3s ease;
   }
-  .nav a:not(.btn):hover::after {
+  .menu a:not(.botao):hover::after {
     right: 0;
   }
-  .nav a.btn {
+  .menu a.botao {
     font-size: 11.5px;
-    color: var(--fg);
+    color: var(--texto);
   }
 
-  .hero {
+  .capa {
     position: relative;
     display: flex;
     align-items: center;
     min-height: 420px;
-    padding: 0 var(--pad-x);
+    padding: 0 var(--espaco-x);
     overflow: hidden;
-    background: var(--bg-deep);
+    background: var(--fundo-escuro);
   }
   @media (min-width: 700px) {
-    .hero {
+    .capa {
       min-height: 600px;
     }
   }
-  .hero-bg {
+  .capa-fundo {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -244,25 +244,25 @@
     opacity: .4;
     filter: grayscale(.3) contrast(1.1);
   }
-  .hero-overlay {
+  .capa-sobreposicao {
     position: absolute;
     inset: 0;
     background: linear-gradient(100deg, rgba(15, 13, 12, .96) 30%, rgba(15, 13, 12, .55) 75%);
   }
   @media (max-width: 640px) {
-    .hero {
+    .capa {
       min-height: 360px;
     }
-    .hero-bg {
+    .capa-fundo {
       opacity: .6;
       filter: grayscale(.3) contrast(1.02);
     }
-    .hero-overlay {
+    .capa-sobreposicao {
       background: linear-gradient(180deg, rgba(15, 13, 12, .55) 0%, rgba(15, 13, 12, .8) 55%, rgba(15, 13, 12, .92) 100%);
     }
   }
 
-  .hero-content {
+  .capa-conteudo {
     position: relative;
     max-width: 600px;
     display: flex;
@@ -270,48 +270,48 @@
     gap: 18px;
     padding: 64px 0;
   }
-  .hero-content > * {
+  .capa-conteudo > * {
     opacity: 0;
     transform: translateY(16px);
-    animation: rise .7s ease forwards;
+    animation: subir .7s ease forwards;
   }
-  .hero-content > *:nth-child(1) { animation-delay: .05s; }
-  .hero-content > *:nth-child(2) { animation-delay: .15s; }
-  .hero-content > *:nth-child(3) { animation-delay: .28s; }
-  .hero-content > *:nth-child(4) { animation-delay: .42s; }
-  @keyframes rise {
+  .capa-conteudo > *:nth-child(1) { animation-delay: .05s; }
+  .capa-conteudo > *:nth-child(2) { animation-delay: .15s; }
+  .capa-conteudo > *:nth-child(3) { animation-delay: .28s; }
+  .capa-conteudo > *:nth-child(4) { animation-delay: .42s; }
+  @keyframes subir {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .eyebrow {
+  .rotulo {
     font-size: 12px;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--destaque);
   }
-  .hero-title {
+  .capa-titulo {
     font-family: Oswald, sans-serif;
     font-weight: 700;
     font-size: 48px;
     line-height: .95;
     text-transform: uppercase;
-    color: var(--fg);
+    color: var(--texto);
   }
   @media (min-width: 700px) {
-    .hero-title { font-size: 72px; }
+    .capa-titulo { font-size: 72px; }
   }
   @media (min-width: 1000px) {
-    .hero-title { font-size: 92px; }
+    .capa-titulo { font-size: 92px; }
   }
-  .hero-text {
+  .capa-texto {
     font-size: 14px;
     line-height: 1.7;
     color: #c9c4be;
     max-width: 420px;
   }
-  .scroll-cue {
+  .dica-rolar {
     position: absolute;
-    left: var(--pad-x);
+    left: var(--espaco-x);
     bottom: 22px;
     display: flex;
     align-items: center;
@@ -319,58 +319,58 @@
     font-size: 10.5px;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--dim);
-    animation: bob 2.2s ease-in-out infinite;
+    color: var(--texto-fraco);
+    animation: balancar 2.2s ease-in-out infinite;
   }
-  .scroll-cue::before {
+  .dica-rolar::before {
     content: "";
     width: 1px;
     height: 20px;
-    background: var(--dim);
+    background: var(--texto-fraco);
   }
-  @keyframes bob {
+  @keyframes balancar {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(6px); }
   }
 
   /* faixa de texto correndo em loop */
-  .ticker {
+  .faixa {
     position: relative;
     overflow: hidden;
-    background: var(--bg-deep);
+    background: var(--fundo-escuro);
     border-top: 1px solid rgba(255, 255, 255, .08);
     border-bottom: 1px solid rgba(255, 255, 255, .08);
     padding: 14px 0;
   }
-  .ticker-track {
+  .faixa-trilha {
     display: flex;
     width: max-content;
-    animation: ticker 26s linear infinite;
+    animation: faixa-mover 26s linear infinite;
   }
-  .ticker span {
+  .faixa span {
     font-family: Oswald, sans-serif;
     font-size: 13px;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--texto-suave);
     padding: 0 22px;
     white-space: nowrap;
   }
-  .ticker span em {
-    color: var(--accent);
+  .faixa span em {
+    color: var(--destaque);
     font-style: normal;
     padding-right: 22px;
   }
-  @keyframes ticker {
+  @keyframes faixa-mover {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
-  .section {
-    padding: var(--pad-y) var(--pad-x);
+  .secao {
+    padding: var(--espaco-y) var(--espaco-x);
   }
 
-  .about {
+  .sobre {
     display: grid;
     grid-template-columns: 1fr;
     gap: 44px;
@@ -378,42 +378,42 @@
     border-bottom: 1px solid rgba(255, 255, 255, .08);
   }
   @media (min-width: 700px) {
-    .about {
+    .sobre {
       grid-template-columns: 1fr 1fr;
     }
   }
-  .about-photo {
+  .sobre-foto {
     position: relative;
     width: 100%;
     max-width: 340px;
     margin: 0 auto;
   }
   @media (max-width: 520px) {
-    .about-photo {
+    .sobre-foto {
       max-width: 280px;
     }
   }
-  .about-text {
+  .sobre-texto {
     font-size: 15px;
     line-height: 1.8;
     color: #c9c4be;
   }
-  .about-quote {
+  .sobre-citacao {
     font-family: 'Permanent Marker', cursive;
     font-size: 19px;
     line-height: 1.4;
-    color: var(--accent);
+    color: var(--destaque);
     margin-top: 16px;
     transform: rotate(-1deg);
   }
 
-  .section-title {
+  .secao-titulo {
     font-family: Oswald, sans-serif;
     font-size: 26px;
     text-transform: uppercase;
-    color: var(--fg);
+    color: var(--texto);
   }
-  .portfolio-head {
+  .portfolio-cabecalho {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -421,64 +421,64 @@
     gap: 12px;
     margin-bottom: 40px;
   }
-  .portfolio-grid {
+  .portfolio-grade {
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
   }
   @media (min-width: 600px) {
-    .portfolio-grid {
+    .portfolio-grade {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   @media (min-width: 980px) {
-    .portfolio-grid {
+    .portfolio-grade {
       grid-template-columns: repeat(3, 1fr);
     }
   }
-  .portfolio-grid .polaroid {
+  .portfolio-grade .polaroid {
     max-width: 420px;
     margin: 0 auto;
     width: 100%;
   }
 
   .processo {
-    background: var(--bg-alt);
+    background: var(--fundo-alt);
     border-top: 1px solid rgba(255, 255, 255, .08);
     border-bottom: 1px solid rgba(255, 255, 255, .08);
   }
-  .steps {
+  .etapas {
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
     margin-top: 36px;
   }
   @media (min-width: 640px) {
-    .steps {
+    .etapas {
       grid-template-columns: repeat(3, 1fr);
     }
   }
-  .step {
+  .etapa {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  .step-num {
+  .etapa-numero {
     font-family: 'Permanent Marker', cursive;
     font-size: 22px;
-    color: var(--accent);
+    color: var(--destaque);
     display: inline-block;
   }
-  .step-title {
+  .etapa-titulo {
     font-family: Oswald, sans-serif;
     font-size: 18px;
     text-transform: uppercase;
-    color: var(--fg);
+    color: var(--texto);
   }
-  .step-text {
+  .etapa-texto {
     font-size: 12.5px;
     line-height: 1.7;
-    color: var(--muted);
+    color: var(--texto-suave);
   }
 
   .contato {
@@ -489,7 +489,7 @@
     align-items: flex-start;
     overflow: hidden;
   }
-  .contato-bg {
+  .contato-fundo {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -498,63 +498,63 @@
     opacity: .22;
     filter: grayscale(.4);
   }
-  .contato-overlay {
+  .contato-sobreposicao {
     position: absolute;
     inset: 0;
     background: rgba(15, 13, 12, .7);
   }
-  .contato-title {
+  .contato-titulo {
     position: relative;
     font-family: Oswald, sans-serif;
     font-size: 26px;
     text-transform: uppercase;
-    color: var(--fg);
+    color: var(--texto);
   }
   @media (min-width: 700px) {
-    .contato-title { font-size: 34px; }
+    .contato-titulo { font-size: 34px; }
   }
-  .contato-text {
+  .contato-texto {
     position: relative;
     font-size: 13px;
     line-height: 1.7;
-    color: var(--muted);
+    color: var(--texto-suave);
     max-width: 420px;
   }
-  .contato-actions {
+  .contato-acoes {
     position: relative;
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 6px;
   }
-  .contato-addr {
+  .contato-endereco {
     position: relative;
     font-size: 12px;
-    color: var(--dim);
+    color: var(--texto-fraco);
     margin-top: 4px;
   }
 
-  .footer {
+  .rodape {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 22px var(--pad-x);
+    padding: 22px var(--espaco-x);
     border-top: 1px solid rgba(255, 255, 255, .08);
   }
-  .footer span {
+  .rodape span {
     font-size: 10.5px;
-    color: var(--dim);
+    color: var(--texto-fraco);
   }
 
-  /* classe usada pelo javascript pra fazer aparecer ao rolar a pagina */
-  .reveal {
+  /* classe usada pelo javascript pra fazer aparecer ao rolar a página */
+  .aparecer {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity .7s ease, transform .7s ease;
   }
-  .reveal.in-view {
+  .aparecer.visivel {
     opacity: 1;
     transform: translateY(0);
   }
@@ -562,161 +562,161 @@
 </head>
 <body>
 
-<header class="nav">
-  <a class="btn" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar horário</a>
+<header class="menu">
+  <a class="botao" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar horário</a>
   <a href="#processo">como funciona</a>
   <a href="#portfolio">portfólio</a>
   <a href="#contato">contato</a>
 </header>
 
 <main>
-  <section class="hero">
-    <img class="hero-bg" src="images/hero-bg.jpg" alt="" width="900" height="900">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="eyebrow">/ especialista em blackwork</div>
-      <h1 class="hero-title">Dark<br>art</h1>
-      <p class="hero-text">Artes grotescas pra gente estranha. Estúdio fixo aqui em BH, agenda aberta o ano inteiro.</p>
-      <a class="btn" style="align-self:flex-start;margin-top:8px;transform:rotate(-1deg)" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Marca sua tattoo, sô</a>
+  <section class="capa">
+    <img class="capa-fundo" src="imagens/hero-bg.jpg" alt="" width="900" height="900">
+    <div class="capa-sobreposicao"></div>
+    <div class="capa-conteudo">
+      <div class="rotulo">/ especialista em blackwork</div>
+      <h1 class="capa-titulo">Dark<br>art</h1>
+      <p class="capa-texto">Artes grotescas pra gente estranha. Estúdio fixo aqui em BH, agenda aberta o ano inteiro.</p>
+      <a class="botao" style="align-self:flex-start;margin-top:8px;transform:rotate(-1deg)" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Marca sua tattoo, sô</a>
     </div>
-    <span class="scroll-cue">role</span>
+    <span class="dica-rolar">role</span>
   </section>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
+  <div class="faixa" aria-hidden="true">
+    <div class="faixa-trilha">
       <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
       <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
     </div>
   </div>
 
-  <section class="section about reveal">
-    <div class="about-photo">
+  <section class="secao sobre aparecer">
+    <div class="sobre-foto">
       <div class="polaroid" style="transform:rotate(-3deg)">
-        <div class="polaroid-frame video-frame">
-          <video id="about-video" poster="images/about.jpg" preload="metadata" playsinline>
+        <div class="polaroid-moldura video-moldura">
+          <video id="video-sobre" poster="imagens/about.jpg" preload="metadata" playsinline>
             <source src="videos/sobre.mp4" type="video/mp4">
           </video>
-          <button class="play-btn" type="button" aria-label="Reproduzir vídeo: quem é Savoi"></button>
+          <button class="botao-tocar" type="button" aria-label="Reproduzir vídeo: quem é Savoi"></button>
         </div>
       </div>
-      <div class="tape" style="width:70px;top:-10px;left:20px;transform:rotate(-8deg)"></div>
+      <div class="fita" style="width:70px;top:-10px;left:20px;transform:rotate(-8deg)"></div>
     </div>
-    <p class="about-text">Não tô aqui pra te convencer a tatuar comigo. Quero que você se identifique com o meu trabalho — com o jeito que eu vou enxergar sua ideia. Blackwork, oriental, arte contemporânea: peças exclusivas, sob encomenda, sem flash e sem repetição.</p>
-    <p class="about-quote">"Originalidade é fragmentação de personalidade."</p>
+    <p class="sobre-texto">Não tô aqui pra te convencer a tatuar comigo. Quero que você se identifique com o meu trabalho — com o jeito que eu vou enxergar sua ideia. Blackwork, oriental, arte contemporânea: peças exclusivas, sob encomenda, sem flash e sem repetição.</p>
+    <p class="sobre-citacao">"Originalidade é fragmentação de personalidade."</p>
   </section>
 
-  <section id="portfolio" class="section">
-    <div class="portfolio-head reveal">
-      <h2 class="section-title">Portfólio</h2>
-      <a href="https://www.instagram.com/street_art.tattoo" target="_blank" rel="noopener" style="font-size:11px;color:var(--dim)">@street_art.tattoo</a>
+  <section id="portfolio" class="secao">
+    <div class="portfolio-cabecalho aparecer">
+      <h2 class="secao-titulo">Portfólio</h2>
+      <a href="https://www.instagram.com/street_art.tattoo" target="_blank" rel="noopener" style="font-size:11px;color:var(--texto-fraco)">@street_art.tattoo</a>
     </div>
-    <div class="portfolio-grid reveal">
-      <div class="polaroid" style="transform:rotate(-2deg)"><div class="polaroid-frame"><img src="images/portfolio-1.jpg" alt="peça blackwork 01" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(1.5deg)"><div class="polaroid-frame"><img src="images/portfolio-2.jpg" alt="peça blackwork 02" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(-1deg)"><div class="polaroid-frame"><img src="images/portfolio-3.jpg" alt="peça blackwork 03" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(2deg)"><div class="polaroid-frame"><img src="images/portfolio-4.jpg" alt="peça blackwork 04" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(-2.5deg)"><div class="polaroid-frame"><img src="images/portfolio-5.jpg" alt="peça blackwork 05" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(1deg)"><div class="polaroid-frame"><img src="images/portfolio-6.jpg" alt="peça dark art 06" width="900" height="1200" loading="lazy"></div></div>
-    </div>
-  </section>
-
-  <section id="processo" class="section processo reveal">
-    <h2 class="section-title">Como funciona</h2>
-    <div class="steps">
-      <div class="step">
-        <span class="step-num" style="transform:rotate(-3deg)">01</span>
-        <span class="step-title">Referência</span>
-        <span class="step-text">Manda sua ideia e referências pelo direct ou WhatsApp.</span>
-      </div>
-      <div class="step">
-        <span class="step-num" style="transform:rotate(2deg)">02</span>
-        <span class="step-title">Desenho</span>
-        <span class="step-text">Fecho o desenho exclusivo pra sua peça, sem repetir em ninguém.</span>
-      </div>
-      <div class="step">
-        <span class="step-num" style="transform:rotate(-2deg)">03</span>
-        <span class="step-title">Sessão</span>
-        <span class="step-text">Agenda no estúdio em BH e a gente risca.</span>
-      </div>
+    <div class="portfolio-grade aparecer">
+      <div class="polaroid" style="transform:rotate(-2deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-1.jpg" alt="peça blackwork 01" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(1.5deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-2.jpg" alt="peça blackwork 02" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(-1deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-3.jpg" alt="peça blackwork 03" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(2deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-4.jpg" alt="peça blackwork 04" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(-2.5deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-5.jpg" alt="peça blackwork 05" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(1deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-6.jpg" alt="peça dark art 06" width="900" height="1200" loading="lazy"></div></div>
     </div>
   </section>
 
-  <section id="contato" class="section contato reveal">
-    <img class="contato-bg" src="images/hero-bg.jpg" alt="" width="900" height="900" loading="lazy">
-    <div class="contato-overlay"></div>
-    <h2 class="contato-title">Marca sua tattoo, sô</h2>
-    <p class="contato-text">Manda mensagem com sua ideia, referência de estilo e disponibilidade pra orçamento. Vamo trocar uma ideia.</p>
-    <div class="contato-actions">
-      <a class="btn" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Orçamento no WhatsApp</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a>
+  <section id="processo" class="secao processo aparecer">
+    <h2 class="secao-titulo">Como funciona</h2>
+    <div class="etapas">
+      <div class="etapa">
+        <span class="etapa-numero" style="transform:rotate(-3deg)">01</span>
+        <span class="etapa-titulo">Referência</span>
+        <span class="etapa-texto">Manda sua ideia e referências pelo direct ou WhatsApp.</span>
+      </div>
+      <div class="etapa">
+        <span class="etapa-numero" style="transform:rotate(2deg)">02</span>
+        <span class="etapa-titulo">Desenho</span>
+        <span class="etapa-texto">Fecho o desenho exclusivo pra sua peça, sem repetir em ninguém.</span>
+      </div>
+      <div class="etapa">
+        <span class="etapa-numero" style="transform:rotate(-2deg)">03</span>
+        <span class="etapa-titulo">Sessão</span>
+        <span class="etapa-texto">Agenda no estúdio em BH e a gente risca.</span>
+      </div>
     </div>
-    <span class="contato-addr">Rua Ceará 621 — Santa Efigênia, Belo Horizonte MG</span>
+  </section>
+
+  <section id="contato" class="secao contato aparecer">
+    <img class="contato-fundo" src="imagens/hero-bg.jpg" alt="" width="900" height="900" loading="lazy">
+    <div class="contato-sobreposicao"></div>
+    <h2 class="contato-titulo">Marca sua tattoo, sô</h2>
+    <p class="contato-texto">Manda mensagem com sua ideia, referência de estilo e disponibilidade pra orçamento. Vamo trocar uma ideia.</p>
+    <div class="contato-acoes">
+      <a class="botao" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Orçamento no WhatsApp</a>
+      <a class="botao botao-contorno" href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a>
+    </div>
+    <span class="contato-endereco">Rua Ceará 621 — Santa Efigênia, Belo Horizonte MG</span>
   </section>
 </main>
 
-<footer class="footer">
+<footer class="rodape">
   <span>Savoi — tatuador · <a href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a></span>
   <span>Rua Ceará 621, Santa Efigênia — Belo Horizonte MG</span>
 </footer>
 
 <script>
-  // deixa o menu com sombra depois que rola um pouco a pagina
-  var nav = document.querySelector('.nav');
+  // deixa o menu com sombra depois que rola um pouco a página
+  var menu = document.querySelector('.menu');
   window.addEventListener('scroll', function () {
     if (window.scrollY > 8) {
-      nav.classList.add('is-scrolled');
+      menu.classList.add('rolado');
     } else {
-      nav.classList.remove('is-scrolled');
+      menu.classList.remove('rolado');
     }
   });
 
-  // mostra as secoes com um fade quando elas entram na tela
+  // mostra as seções com um fade quando elas entram na tela
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      for (var i = 0; i < entries.length; i++) {
-        var entry = entries[i];
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
+    var observador = new IntersectionObserver(function (itens) {
+      for (var i = 0; i < itens.length; i++) {
+        var item = itens[i];
+        if (item.isIntersecting) {
+          item.target.classList.add('visivel');
+          observador.unobserve(item.target);
         }
       }
     }, { threshold: 0.15 });
 
-    var revealEls = document.querySelectorAll('.reveal');
-    revealEls.forEach(function (el) {
-      io.observe(el);
+    var elementosAparecer = document.querySelectorAll('.aparecer');
+    elementosAparecer.forEach(function (elemento) {
+      observador.observe(elemento);
     });
   } else {
-    // navegador antigo que nao tem IntersectionObserver, mostra tudo direto
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      el.classList.add('in-view');
+    // navegador antigo que não tem IntersectionObserver, mostra tudo direto
+    document.querySelectorAll('.aparecer').forEach(function (elemento) {
+      elemento.classList.add('visivel');
     });
   }
 
-  // video da seção "sobre" com botao de play customizado
-  var aboutVideo = document.getElementById('about-video');
-  var playBtn = document.querySelector('.play-btn');
+  // vídeo da seção "sobre" com botão de tocar personalizado
+  var videoSobre = document.getElementById('video-sobre');
+  var botaoTocar = document.querySelector('.botao-tocar');
 
-  if (aboutVideo && playBtn) {
-    playBtn.addEventListener('click', function () {
-      aboutVideo.controls = true;
-      aboutVideo.play();
-      playBtn.classList.add('is-hidden');
+  if (videoSobre && botaoTocar) {
+    botaoTocar.addEventListener('click', function () {
+      videoSobre.controls = true;
+      videoSobre.play();
+      botaoTocar.classList.add('escondido');
     });
 
-    aboutVideo.addEventListener('pause', function () {
-      if (aboutVideo.currentTime > 0 && !aboutVideo.ended) {
-        playBtn.classList.remove('is-hidden');
+    videoSobre.addEventListener('pause', function () {
+      if (videoSobre.currentTime > 0 && !videoSobre.ended) {
+        botaoTocar.classList.remove('escondido');
       }
     });
 
-    aboutVideo.addEventListener('play', function () {
-      playBtn.classList.add('is-hidden');
+    videoSobre.addEventListener('play', function () {
+      botaoTocar.classList.add('escondido');
     });
 
-    aboutVideo.addEventListener('ended', function () {
-      aboutVideo.controls = false;
-      playBtn.classList.remove('is-hidden');
+    videoSobre.addEventListener('ended', function () {
+      videoSobre.controls = false;
+      botaoTocar.classList.remove('escondido');
     });
   }
 </script>
