@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte</title>
+<meta name="description" content="Savoi, tatuador especialista em blackwork e dark art em Belo Horizonte. Peças exclusivas, sob encomenda, sem flash e sem repetição. Estúdio na Rua Ceará, Santa Efigênia.">
+
+<!-- TODO: trocar SEU-DOMINIO-AQUI.com pelo dominio de verdade quando publicar o site -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte">
+<meta property="og:description" content="Peças exclusivas, sob encomenda — sem flash, sem repetição. Blackwork e dark art em BH.">
+<meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/imagens/og-cover.jpg">
+
+<link rel="icon" type="image/png" href="imagens/favicon.png">
+<link rel="theme-color" content="#141210">
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Oswald:wght@400;500;600;700&amp;family=Permanent+Marker&amp;display=swap" rel="stylesheet">
+
+<style>
+  /* cores e espaçamento principal do site */
+  :root {
+    --fundo: #141210;
+    --fundo-alt: #191613;
+    --fundo-escuro: #0f0d0c;
+    --texto: #f3eee7;
+    --texto-suave: #9c9690;
+    --texto-fraco: #6f6a65;
+    --destaque: #d6301f;
+    --espaco-x: 20px;
+    --espaco-y: 48px;
+  }
+
+  @media (min-width: 700px) {
+    :root {
+      --espaco-x: 48px;
+      --espaco-y: 72px;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--fundo);
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--texto);
+  }
+
+  a {
+    color: var(--destaque);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--texto);
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  /* botão com efeito de preencher a cor no hover */
+  .botao {
+    position: relative;
+    overflow: hidden;
+    font-size: 12.5px;
+    padding: 13px 24px;
+    border: 1px solid var(--destaque);
+    color: var(--texto);
+    display: inline-block;
+    z-index: 0;
+    transition: color .35s ease, border-color .35s ease;
+  }
+  .botao::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--destaque);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+    z-index: -1;
+  }
+  .botao:hover {
+    color: var(--texto);
+  }
+  .botao:hover::before {
+    transform: scaleX(1);
+  }
+  .botao-contorno {
+    border-color: rgba(255, 255, 255, .2);
+  }
+  .botao-contorno::before {
+    background: rgba(255, 255, 255, .12);
+  }
+
+  /* fotos estilo polaroid do portfólio */
+  .polaroid {
+    background: #e9e4da;
+    padding: 10px 10px 34px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .55);
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .polaroid-moldura {
+    position: relative;
+    width: 100%;
+    padding-top: 125%;
+    overflow: hidden;
+    display: block;
+  }
+  .polaroid-moldura img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(.15);
+    transition: transform .6s ease, filter .5s ease;
+  }
+  .polaroid:hover {
+    box-shadow: 0 18px 38px rgba(0, 0, 0, .6);
+  }
+  .polaroid:hover img {
+    transform: scale(1.06);
+    filter: grayscale(0);
+  }
+
+  .video-moldura video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+  }
+  .botao-tocar {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(20, 18, 16, .55);
+    border: 1px solid rgba(243, 238, 231, .7);
+    cursor: pointer;
+    transition: transform .25s ease, background .25s ease;
+  }
+  .botao-tocar::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-46%, -50%);
+    border-style: solid;
+    border-width: 9px 0 9px 15px;
+    border-color: transparent transparent transparent var(--texto);
+  }
+  .botao-tocar:hover {
+    background: var(--destaque);
+    transform: scale(1.08);
+  }
+  .botao-tocar.escondido {
+    display: none;
+  }
+  .fita {
+    position: absolute;
+    height: 22px;
+    background: rgba(230, 220, 150, .55);
+    border: 1px solid rgba(0, 0, 0, .08);
+  }
+
+  /* menu fixo no topo */
+  .menu {
+    position: sticky;
+    top: 0;
+    z-index: 61;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 16px var(--espaco-x);
+    background: rgba(20, 18, 16, .96);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    transition: padding .3s ease, box-shadow .3s ease;
+  }
+  .menu.rolado {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  }
+  .menu a {
+    position: relative;
+    font-size: 12px;
+    color: var(--texto-suave);
+  }
+  .menu a:not(.botao)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -4px;
+    height: 1px;
+    background: var(--destaque);
+    transition: right .3s ease;
+  }
+  .menu a:not(.botao):hover::after {
+    right: 0;
+  }
+  .menu a.botao {
+    font-size: 11.5px;
+    color: var(--texto);
+  }
+
+  .capa {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 420px;
+    padding: 0 var(--espaco-x);
+    overflow: hidden;
+    background: var(--fundo-escuro);
+  }
+  @media (min-width: 700px) {
+    .capa {
+      min-height: 600px;
+    }
+  }
+  .capa-fundo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: .4;
+    filter: grayscale(.3) contrast(1.1);
+  }
+  .capa-sobreposicao {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(15, 13, 12, .96) 30%, rgba(15, 13, 12, .55) 75%);
+  }
+  @media (max-width: 640px) {
+    .capa {
+      min-height: 360px;
+    }
+    .capa-fundo {
+      opacity: .6;
+      filter: grayscale(.3) contrast(1.02);
+    }
+    .capa-sobreposicao {
+      background: linear-gradient(180deg, rgba(15, 13, 12, .55) 0%, rgba(15, 13, 12, .8) 55%, rgba(15, 13, 12, .92) 100%);
+    }
+  }
+
+  .capa-conteudo {
+    position: relative;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 64px 0;
+  }
+  .capa-conteudo > * {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: subir .7s ease forwards;
+  }
+  .capa-conteudo > *:nth-child(1) { animation-delay: .05s; }
+  .capa-conteudo > *:nth-child(2) { animation-delay: .15s; }
+  .capa-conteudo > *:nth-child(3) { animation-delay: .28s; }
+  .capa-conteudo > *:nth-child(4) { animation-delay: .42s; }
+  @keyframes subir {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .rotulo {
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--destaque);
+  }
+  .capa-titulo {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: .95;
+    text-transform: uppercase;
+    color: var(--texto);
+  }
+  @media (min-width: 700px) {
+    .capa-titulo { font-size: 72px; }
+  }
+  @media (min-width: 1000px) {
+    .capa-titulo { font-size: 92px; }
+  }
+  .capa-texto {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #c9c4be;
+    max-width: 420px;
+  }
+  .dica-rolar {
+    position: absolute;
+    left: var(--espaco-x);
+    bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--texto-fraco);
+    animation: balancar 2.2s ease-in-out infinite;
+  }
+  .dica-rolar::before {
+    content: "";
+    width: 1px;
+    height: 20px;
+    background: var(--texto-fraco);
+  }
+  @keyframes balancar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* faixa de texto correndo em loop */
+  .faixa {
+    position: relative;
+    overflow: hidden;
+    background: var(--fundo-escuro);
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    padding: 14px 0;
+  }
+  .faixa-trilha {
+    display: flex;
+    width: max-content;
+    animation: faixa-mover 26s linear infinite;
+  }
+  .faixa span {
+    font-family: Oswald, sans-serif;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    padding: 0 22px;
+    white-space: nowrap;
+  }
+  .faixa span em {
+    color: var(--destaque);
+    font-style: normal;
+    padding-right: 22px;
+  }
+  @keyframes faixa-mover {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .secao {
+    padding: var(--espaco-y) var(--espaco-x);
+  }
+
+  .sobre {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 44px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+  @media (min-width: 700px) {
+    .sobre {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .sobre-foto {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  @media (max-width: 520px) {
+    .sobre-foto {
+      max-width: 280px;
+    }
+  }
+  .sobre-texto {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #c9c4be;
+  }
+  .sobre-citacao {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--destaque);
+    margin-top: 16px;
+    transform: rotate(-1deg);
+  }
+
+  .secao-titulo {
+    font-family: Oswald, sans-serif;
+    font-size: 26px;
+    text-transform: uppercase;
+    color: var(--texto);
+  }
+  .portfolio-cabecalho {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .portfolio-grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  @media (min-width: 600px) {
+    .portfolio-grade {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 980px) {
+    .portfolio-grade {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .portfolio-grade .polaroid {
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .processo {
+    background: var(--fundo-alt);
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+  .etapas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 36px;
+  }
+  @media (min-width: 640px) {
+    .etapas {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .etapa {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .etapa-numero {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 22px;
+    color: var(--destaque);
+    display: inline-block;
+  }
+  .etapa-titulo {
+    font-family: Oswald, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--texto);
+  }
+  .etapa-texto {
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--texto-suave);
+  }
+
+  .contato {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+  .contato-fundo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .22;
+    filter: grayscale(.4);
+  }
+  .contato-sobreposicao {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 13, 12, .7);
+  }
+  .contato-titulo {
+    position: relative;
+    font-family: Oswald, sans-serif;
+    font-size: 26px;
+    text-transform: uppercase;
+    color: var(--texto);
+  }
+  @media (min-width: 700px) {
+    .contato-titulo { font-size: 34px; }
+  }
+  .contato-texto {
+    position: relative;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--texto-suave);
+    max-width: 420px;
+  }
+  .contato-acoes {
+    position: relative;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .contato-endereco {
+    position: relative;
+    font-size: 12px;
+    color: var(--texto-fraco);
+    margin-top: 4px;
+  }
+
+  .rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 22px var(--espaco-x);
+    border-top: 1px solid rgba(255, 255, 255, .08);
+  }
+  .rodape span {
+    font-size: 10.5px;
+    color: var(--texto-fraco);
+  }
+
+  /* classe usada pelo javascript pra fazer aparecer ao rolar a página */
+  .aparecer {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .aparecer.visivel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<header class="menu">
+  <a class="botao" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar horário</a>
+  <a href="#processo">como funciona</a>
+  <a href="#portfolio">portfólio</a>
+  <a href="#contato">contato</a>
+</header>
+
+<main>
+  <section class="capa">
+    <img class="capa-fundo" src="imagens/hero-bg.jpg" alt="" width="900" height="900">
+    <div class="capa-sobreposicao"></div>
+    <div class="capa-conteudo">
+      <div class="rotulo">/ especialista em blackwork</div>
+      <h1 class="capa-titulo">Dark<br>art</h1>
+      <p class="capa-texto">Artes grotescas pra gente estranha. Estúdio fixo aqui em BH, agenda aberta o ano inteiro.</p>
+      <a class="botao" style="align-self:flex-start;margin-top:8px;transform:rotate(-1deg)" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Marca sua tattoo, sô</a>
+    </div>
+    <span class="dica-rolar">role</span>
+  </section>
+
+  <div class="faixa" aria-hidden="true">
+    <div class="faixa-trilha">
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
+    </div>
+  </div>
+
+  <section class="secao sobre aparecer">
+    <div class="sobre-foto">
+      <div class="polaroid" style="transform:rotate(-3deg)">
+        <div class="polaroid-moldura video-moldura">
+          <video id="video-sobre" poster="imagens/about.jpg" preload="metadata" playsinline>
+            <source src="videos/sobre.mp4" type="video/mp4">
+          </video>
+          <button class="botao-tocar" type="button" aria-label="Reproduzir vídeo: quem é Savoi"></button>
+        </div>
+      </div>
+      <div class="fita" style="width:70px;top:-10px;left:20px;transform:rotate(-8deg)"></div>
+    </div>
+    <p class="sobre-texto">Não tô aqui pra te convencer a tatuar comigo. Quero que você se identifique com o meu trabalho — com o jeito que eu vou enxergar sua ideia. Blackwork, oriental, arte contemporânea: peças exclusivas, sob encomenda, sem flash e sem repetição.</p>
+    <p class="sobre-citacao">"Originalidade é fragmentação de personalidade."</p>
+  </section>
+
+  <section id="portfolio" class="secao">
+    <div class="portfolio-cabecalho aparecer">
+      <h2 class="secao-titulo">Portfólio</h2>
+      <a href="https://www.instagram.com/street_art.tattoo" target="_blank" rel="noopener" style="font-size:11px;color:var(--texto-fraco)">@street_art.tattoo</a>
+    </div>
+    <div class="portfolio-grade aparecer">
+      <div class="polaroid" style="transform:rotate(-2deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-1.jpg" alt="peça blackwork 01" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(1.5deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-2.jpg" alt="peça blackwork 02" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(-1deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-3.jpg" alt="peça blackwork 03" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(2deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-4.jpg" alt="peça blackwork 04" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(-2.5deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-5.jpg" alt="peça blackwork 05" width="900" height="1200" loading="lazy"></div></div>
+      <div class="polaroid" style="transform:rotate(1deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-6.jpg" alt="peça dark art 06" width="900" height="1200" loading="lazy"></div></div>
+    </div>
+  </section>
+
+  <section id="processo" class="secao processo aparecer">
+    <h2 class="secao-titulo">Como funciona</h2>
+    <div class="etapas">
+      <div class="etapa">
+        <span class="etapa-numero" style="transform:rotate(-3deg)">01</span>
+        <span class="etapa-titulo">Referência</span>
+        <span class="etapa-texto">Manda sua ideia e referências pelo direct ou WhatsApp.</span>
+      </div>
+      <div class="etapa">
+        <span class="etapa-numero" style="transform:rotate(2deg)">02</span>
+        <span class="etapa-titulo">Desenho</span>
+        <span class="etapa-texto">Fecho o desenho exclusivo pra sua peça, sem repetir em ninguém.</span>
+      </div>
+      <div class="etapa">
+        <span class="etapa-numero" style="transform:rotate(-2deg)">03</span>
+        <span class="etapa-titulo">Sessão</span>
+        <span class="etapa-texto">Agenda no estúdio em BH e a gente risca.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="secao contato aparecer">
+    <img class="contato-fundo" src="imagens/hero-bg.jpg" alt="" width="900" height="900" loading="lazy">
+    <div class="contato-sobreposicao"></div>
+    <h2 class="contato-titulo">Marca sua tattoo, sô</h2>
+    <p class="contato-texto">Manda mensagem com sua ideia, referência de estilo e disponibilidade pra orçamento. Vamo trocar uma ideia.</p>
+    <div class="contato-acoes">
+      <a class="botao" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Orçamento no WhatsApp</a>
+      <a class="botao botao-contorno" href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a>
+    </div>
+    <span class="contato-endereco">Rua Ceará 621 — Santa Efigênia, Belo Horizonte MG</span>
+  </section>
+</main>
+
+<footer class="rodape">
+  <span>Savoi — tatuador · <a href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a></span>
+  <span>Rua Ceará 621, Santa Efigênia — Belo Horizonte MG</span>
+</footer>
+
+<script>
+  // deixa o menu com sombra depois que rola um pouco a página
+  var menu = document.querySelector('.menu');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 8) {
+      menu.classList.add('rolado');
+    } else {
+      menu.classList.remove('rolado');
+    }
+  });
+
+  // mostra as seções com um fade quando elas entram na tela
+  if ('IntersectionObserver' in window) {
+    var observador = new IntersectionObserver(function (itens) {
+      for (var i = 0; i < itens.length; i++) {
+        var item = itens[i];
+        if (item.isIntersecting) {
+          item.target.classList.add('visivel');
+          observador.unobserve(item.target);
+        }
+      }
+    }, { threshold: 0.15 });
+
+    var elementosAparecer = document.querySelectorAll('.aparecer');
+    elementosAparecer.forEach(function (elemento) {
+      observador.observe(elemento);
+    });
+  } else {
+    // navegador antigo que não tem IntersectionObserver, mostra tudo direto
+    document.querySelectorAll('.aparecer').forEach(function (elemento) {
+      elemento.classList.add('visivel');
+    });
+  }
+
+  // vídeo da seção "sobre" com botão de tocar personalizado
+  var videoSobre = document.getElementById('video-sobre');
+  var botaoTocar = document.querySelector('.botao-tocar');
+
+  if (videoSobre && botaoTocar) {
+    botaoTocar.addEventListener('click', function () {
+      videoSobre.controls = true;
+      videoSobre.play();
+      botaoTocar.classList.add('escondido');
+    });
+
+    videoSobre.addEventListener('pause', function () {
+      if (videoSobre.currentTime > 0 && !videoSobre.ended) {
+        botaoTocar.classList.remove('escondido');
+      }
+    });
+
+    videoSobre.addEventListener('play', function () {
+      botaoTocar.classList.add('escondido');
+    });
+
+    videoSobre.addEventListener('ended', function () {
+      videoSobre.controls = false;
+      botaoTocar.classList.remove('escondido');
+    });
+  }
+</script>
+
+</body>
+</html>
