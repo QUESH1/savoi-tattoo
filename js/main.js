@@ -361,15 +361,29 @@
     if (!videos.length || reduzido) return;
 
     function tentarTocar(video) {
-      var promessa = video.play();
-      if (promessa && promessa.catch) promessa.catch(function () { /* navegador bloqueou, tenta de novo depois */ });
+      video._promessaPlay = video.play();
+      if (video._promessaPlay && video._promessaPlay.catch) {
+        video._promessaPlay.catch(function () { /* navegador bloqueou, tenta de novo depois */ });
+      }
+    }
+    // pausar enquanto o play() anterior ainda está pendente derruba a promise
+    // com "interrupted by a call to pause()" e deixa o vídeo travado — por
+    // isso a página só voltava a tocar depois de rolar pra cima e pra baixo
+    // de novo. Aqui a pausa espera o play() em voo terminar antes de agir.
+    function tentarPausar(video) {
+      var pendente = video._promessaPlay;
+      if (pendente && pendente.then) {
+        pendente.then(function () { video.pause(); }).catch(function () {});
+      } else {
+        video.pause();
+      }
     }
 
     if ('IntersectionObserver' in window) {
       var observador = new IntersectionObserver(function (itens) {
         itens.forEach(function (item) {
           if (item.isIntersecting) tentarTocar(item.target);
-          else item.target.pause();
+          else tentarPausar(item.target);
         });
       }, { threshold: .15 });
       videos.forEach(function (v) { observador.observe(v); });
