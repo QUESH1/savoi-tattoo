@@ -3,7 +3,6 @@
 
   var html = document.documentElement;
   var reduzido = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  if (reduzido) html.classList.add('reduzido');
 
   var temGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
   var temLenis = typeof window.Lenis !== 'undefined';
