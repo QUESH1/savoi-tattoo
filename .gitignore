@@ -1,8 +1,9 @@
-# Fotos/vídeos brutos de referência (não usados pelo site — as versões otimizadas ficam em images/ e videos/)
+# Fotos/vídeos brutos de referência (não usados pelo site — as versões
+# otimizadas ficam em imagens/ e videos/). Ficam só locais, nunca vão pro repo.
 /*.jpg
 /*.jpeg
 /*.png
 /*.mp4
 
-# Export de bundle (artefato gerado, não é código-fonte)
-Savoi Tattoo Landing Page.html
+# Pasta de material bruto do savoi-2.0, caso precise reprocessar algo no futuro
+/imagens e video 2.0/

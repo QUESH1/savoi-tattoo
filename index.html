@@ -5,592 +5,457 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte</title>
-<meta name="description" content="Savoi, tatuador especialista em blackwork e dark art em Belo Horizonte. Peças exclusivas, sob encomenda, sem flash e sem repetição. Estúdio na Rua Ceará, Santa Efigênia.">
+<meta name="description" content="Savoi, tatuador especialista em blackwork e dark art em Belo Horizonte. Referências orientais, formas orgânicas e trabalhos autorais, sob encomenda. Estúdio na Rua Ceará, Santa Efigênia.">
 
-<!-- TODO: trocar SEU-DOMINIO-AQUI.com pelo dominio de verdade quando publicar o site -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Savoi Tattoo — Blackwork &amp; Dark Art em Belo Horizonte">
-<meta property="og:description" content="Peças exclusivas, sob encomenda — sem flash, sem repetição. Blackwork e dark art em BH.">
-<meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/imagens/og-cover.jpg">
+<meta property="og:description" content="Blackwork, dark art, referências orientais e formas orgânicas. Trabalhos autorais em Belo Horizonte.">
+<meta property="og:image" content="https://savoitintas.com.br/imagens/og-cover.jpg">
 
 <link rel="icon" type="image/png" href="imagens/favicon.png">
-<link rel="theme-color" content="#141210">
+<meta name="theme-color" content="#24201b">
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Oswald:wght@400;500;600;700&amp;family=Permanent+Marker&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Oswald:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 
-<style>
-  /* cores e espaçamento principal do site */
-  :root {
-    --fundo: #141210;
-    --fundo-alt: #191613;
-    --fundo-escuro: #0f0d0c;
-    --texto: #f3eee7;
-    --texto-suave: #9c9690;
-    --texto-fraco: #6f6a65;
-    --destaque: #d6301f;
-    --espaco-x: 20px;
-    --espaco-y: 48px;
-  }
-
-  @media (min-width: 700px) {
-    :root {
-      --espaco-x: 48px;
-      --espaco-y: 72px;
-    }
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    background: var(--fundo);
-    font-family: 'IBM Plex Mono', monospace;
-    color: var(--texto);
-  }
-
-  a {
-    color: var(--destaque);
-    text-decoration: none;
-  }
-  a:hover {
-    color: var(--texto);
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  /* botão com efeito de preencher a cor no hover */
-  .botao {
-    position: relative;
-    overflow: hidden;
-    font-size: 12.5px;
-    padding: 13px 24px;
-    border: 1px solid var(--destaque);
-    color: var(--texto);
-    display: inline-block;
-    z-index: 0;
-    transition: color .35s ease, border-color .35s ease;
-  }
-  .botao::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--destaque);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .35s ease;
-    z-index: -1;
-  }
-  .botao:hover {
-    color: var(--texto);
-  }
-  .botao:hover::before {
-    transform: scaleX(1);
-  }
-  .botao-contorno {
-    border-color: rgba(255, 255, 255, .2);
-  }
-  .botao-contorno::before {
-    background: rgba(255, 255, 255, .12);
-  }
-
-  /* fotos estilo polaroid do portfólio */
-  .polaroid {
-    background: #e9e4da;
-    padding: 10px 10px 34px;
-    box-shadow: 0 10px 26px rgba(0, 0, 0, .55);
-    transition: transform .4s ease, box-shadow .4s ease;
-  }
-  .polaroid-moldura {
-    position: relative;
-    width: 100%;
-    padding-top: 125%;
-    overflow: hidden;
-    display: block;
-  }
-  .polaroid-moldura img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(.15);
-    transition: transform .6s ease, filter .5s ease;
-  }
-  .polaroid:hover {
-    box-shadow: 0 18px 38px rgba(0, 0, 0, .6);
-  }
-  .polaroid:hover img {
-    transform: scale(1.06);
-    filter: grayscale(0);
-  }
-
-  .video-moldura video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: #000;
-  }
-  .botao-tocar {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 60px;
-    height: 60px;
-    padding: 0;
-    border-radius: 50%;
-    background: rgba(20, 18, 16, .55);
-    border: 1px solid rgba(243, 238, 231, .7);
-    cursor: pointer;
-    transition: transform .25s ease, background .25s ease;
-  }
-  .botao-tocar::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-46%, -50%);
-    border-style: solid;
-    border-width: 9px 0 9px 15px;
-    border-color: transparent transparent transparent var(--texto);
-  }
-  .botao-tocar:hover {
-    background: var(--destaque);
-    transform: scale(1.08);
-  }
-  .botao-tocar.escondido {
-    display: none;
-  }
-  .fita {
-    position: absolute;
-    height: 22px;
-    background: rgba(230, 220, 150, .55);
-    border: 1px solid rgba(0, 0, 0, .08);
-  }
-
-  /* menu fixo no topo */
-  .menu {
-    position: sticky;
-    top: 0;
-    z-index: 61;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 18px;
-    padding: 16px var(--espaco-x);
-    background: rgba(20, 18, 16, .96);
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
-    transition: padding .3s ease, box-shadow .3s ease;
-  }
-  .menu.rolado {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
-  }
-  .menu a {
-    position: relative;
-    font-size: 12px;
-    color: var(--texto-suave);
-  }
-  .menu a:not(.botao)::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 100%;
-    bottom: -4px;
-    height: 1px;
-    background: var(--destaque);
-    transition: right .3s ease;
-  }
-  .menu a:not(.botao):hover::after {
-    right: 0;
-  }
-  .menu a.botao {
-    font-size: 11.5px;
-    color: var(--texto);
-  }
-
-  .capa {
-    position: relative;
-    display: flex;
-    align-items: center;
-    min-height: 420px;
-    padding: 0 var(--espaco-x);
-    overflow: hidden;
-    background: var(--fundo-escuro);
-  }
-  @media (min-width: 700px) {
-    .capa {
-      min-height: 600px;
-    }
-  }
-  .capa-fundo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    opacity: .4;
-    filter: grayscale(.3) contrast(1.1);
-  }
-  .capa-sobreposicao {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(100deg, rgba(15, 13, 12, .96) 30%, rgba(15, 13, 12, .55) 75%);
-  }
-  @media (max-width: 640px) {
-    .capa {
-      min-height: 360px;
-    }
-    .capa-fundo {
-      opacity: .6;
-      filter: grayscale(.3) contrast(1.02);
-    }
-    .capa-sobreposicao {
-      background: linear-gradient(180deg, rgba(15, 13, 12, .55) 0%, rgba(15, 13, 12, .8) 55%, rgba(15, 13, 12, .92) 100%);
-    }
-  }
-
-  .capa-conteudo {
-    position: relative;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    padding: 64px 0;
-  }
-  .capa-conteudo > * {
-    opacity: 0;
-    transform: translateY(16px);
-    animation: subir .7s ease forwards;
-  }
-  .capa-conteudo > *:nth-child(1) { animation-delay: .05s; }
-  .capa-conteudo > *:nth-child(2) { animation-delay: .15s; }
-  .capa-conteudo > *:nth-child(3) { animation-delay: .28s; }
-  .capa-conteudo > *:nth-child(4) { animation-delay: .42s; }
-  @keyframes subir {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .rotulo {
-    font-size: 12px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--destaque);
-  }
-  .capa-titulo {
-    font-family: Oswald, sans-serif;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: .95;
-    text-transform: uppercase;
-    color: var(--texto);
-  }
-  @media (min-width: 700px) {
-    .capa-titulo { font-size: 72px; }
-  }
-  @media (min-width: 1000px) {
-    .capa-titulo { font-size: 92px; }
-  }
-  .capa-texto {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #c9c4be;
-    max-width: 420px;
-  }
-  .dica-rolar {
-    position: absolute;
-    left: var(--espaco-x);
-    bottom: 22px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 10.5px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--texto-fraco);
-    animation: balancar 2.2s ease-in-out infinite;
-  }
-  .dica-rolar::before {
-    content: "";
-    width: 1px;
-    height: 20px;
-    background: var(--texto-fraco);
-  }
-  @keyframes balancar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-
-  /* faixa de texto correndo em loop */
-  .faixa {
-    position: relative;
-    overflow: hidden;
-    background: var(--fundo-escuro);
-    border-top: 1px solid rgba(255, 255, 255, .08);
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
-    padding: 14px 0;
-  }
-  .faixa-trilha {
-    display: flex;
-    width: max-content;
-    animation: faixa-mover 26s linear infinite;
-  }
-  .faixa span {
-    font-family: Oswald, sans-serif;
-    font-size: 13px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--texto-suave);
-    padding: 0 22px;
-    white-space: nowrap;
-  }
-  .faixa span em {
-    color: var(--destaque);
-    font-style: normal;
-    padding-right: 22px;
-  }
-  @keyframes faixa-mover {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  .secao {
-    padding: var(--espaco-y) var(--espaco-x);
-  }
-
-  .sobre {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 44px;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
-  }
-  @media (min-width: 700px) {
-    .sobre {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  .sobre-foto {
-    position: relative;
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-  }
-  @media (max-width: 520px) {
-    .sobre-foto {
-      max-width: 280px;
-    }
-  }
-  .sobre-texto {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #c9c4be;
-  }
-  .sobre-citacao {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 19px;
-    line-height: 1.4;
-    color: var(--destaque);
-    margin-top: 16px;
-    transform: rotate(-1deg);
-  }
-
-  .secao-titulo {
-    font-family: Oswald, sans-serif;
-    font-size: 26px;
-    text-transform: uppercase;
-    color: var(--texto);
-  }
-  .portfolio-cabecalho {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-  .portfolio-grade {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  @media (min-width: 600px) {
-    .portfolio-grade {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 980px) {
-    .portfolio-grade {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  .portfolio-grade .polaroid {
-    max-width: 420px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .processo {
-    background: var(--fundo-alt);
-    border-top: 1px solid rgba(255, 255, 255, .08);
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
-  }
-  .etapas {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-    margin-top: 36px;
-  }
-  @media (min-width: 640px) {
-    .etapas {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  .etapa {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .etapa-numero {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 22px;
-    color: var(--destaque);
-    display: inline-block;
-  }
-  .etapa-titulo {
-    font-family: Oswald, sans-serif;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--texto);
-  }
-  .etapa-texto {
-    font-size: 12.5px;
-    line-height: 1.7;
-    color: var(--texto-suave);
-  }
-
-  .contato {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
-    overflow: hidden;
-  }
-  .contato-fundo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .22;
-    filter: grayscale(.4);
-  }
-  .contato-sobreposicao {
-    position: absolute;
-    inset: 0;
-    background: rgba(15, 13, 12, .7);
-  }
-  .contato-titulo {
-    position: relative;
-    font-family: Oswald, sans-serif;
-    font-size: 26px;
-    text-transform: uppercase;
-    color: var(--texto);
-  }
-  @media (min-width: 700px) {
-    .contato-titulo { font-size: 34px; }
-  }
-  .contato-texto {
-    position: relative;
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--texto-suave);
-    max-width: 420px;
-  }
-  .contato-acoes {
-    position: relative;
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 6px;
-  }
-  .contato-endereco {
-    position: relative;
-    font-size: 12px;
-    color: var(--texto-fraco);
-    margin-top: 4px;
-  }
-
-  .rodape {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 22px var(--espaco-x);
-    border-top: 1px solid rgba(255, 255, 255, .08);
-  }
-  .rodape span {
-    font-size: 10.5px;
-    color: var(--texto-fraco);
-  }
-
-  /* classe usada pelo javascript pra fazer aparecer ao rolar a página */
-  .aparecer {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-  .aparecer.visivel {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="grao" aria-hidden="true"></div>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor-ponto"></div>
+  <div class="cursor-anel"><span class="cursor-texto"></span></div>
+</div>
+
+<div class="loader" id="loader">
+  <img class="loader-mancha" id="loader-mancha" src="imagens/favicon.png" alt="">
+  <span class="loader-texto">SAVOI</span>
+</div>
+<div class="cortina" id="cortina" aria-hidden="true"></div>
+
+<nav class="indice" aria-label="Seções da página">
+  <a href="#topo" data-idx="0" data-rotulo="topo"><span></span></a>
+  <a href="#sobre" data-idx="1" data-rotulo="sobre"><span></span></a>
+  <a href="#portfolio" data-idx="2" data-rotulo="portfólio"><span></span></a>
+  <a href="#processo" data-idx="3" data-rotulo="como funciona"><span></span></a>
+  <a href="#contato" data-idx="4" data-rotulo="contato"><span></span></a>
+</nav>
+
 <header class="menu">
-  <a class="botao" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar horário</a>
-  <a href="#processo">como funciona</a>
-  <a href="#portfolio">portfólio</a>
-  <a href="#contato">contato</a>
+  <a class="marca" href="#topo">
+    <img src="imagens/favicon.png" alt="">
+    Savoi
+  </a>
+  <div class="menu-links">
+    <a class="botao" href="https://api.whatsapp.com/send/?phone=5531982027033&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar horário</a>
+  </div>
+  <a class="botao botao-mobile-cta" href="https://api.whatsapp.com/send/?phone=5531982027033&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar</a>
+  <button type="button" class="menu-alternar" id="menu-alternar" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
+<nav class="menu-mobile" id="menu-mobile" aria-label="Menu principal">
+  <a href="#sobre">quem é</a>
+  <a href="#portfolio">portfólio</a>
+  <a href="#processo">como funciona</a>
+  <a href="#contato">contato</a>
+  <a class="botao botao-grande" href="https://api.whatsapp.com/send/?phone=5531982027033&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">marcar horário</a>
+  <a class="menu-mobile-insta" href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a>
+</nav>
+
 <main>
-  <section class="capa">
-    <img class="capa-fundo" src="imagens/hero-bg.jpg" alt="" width="900" height="900">
+  <section id="topo" class="capa">
+    <div class="capa-fundo-wrap">
+      <img class="capa-fundo" id="capa-fundo" src="imagens/hero-bg.jpg" alt="" width="900" height="900" fetchpriority="high">
+    </div>
     <div class="capa-sobreposicao"></div>
     <div class="capa-conteudo">
-      <div class="rotulo">/ especialista em blackwork</div>
-      <h1 class="capa-titulo">Dark<br>art</h1>
-      <p class="capa-texto">Artes grotescas pra gente estranha. Estúdio fixo aqui em BH, agenda aberta o ano inteiro.</p>
-      <a class="botao" style="align-self:flex-start;margin-top:8px;transform:rotate(-1deg)" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Marca sua tattoo, sô</a>
+      <div class="rotulo-imagem aparecer">
+        <svg class="rotulo-svg" viewBox="0 0 3403 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arte grotesca pra gente estranha"><g transform="translate(0,500) scale(0.1,-0.1)"><path d="M27300 4946 c-107 -36 -150 -65 -150 -99 0 -11 -13 -35 -30 -54 -33
+-38 -38 -73 -15 -117 8 -15 15 -35 15 -44 0 -8 6 -23 14 -31 9 -10 18 -64 26
+-151 8 -95 17 -144 30 -165 9 -16 18 -52 19 -80 2 -27 3 -61 4 -75 2 -24 0
+-24 -108 -37 -60 -6 -153 -17 -205 -23 -52 -5 -158 -17 -235 -26 -196 -22
+-483 -70 -501 -84 -22 -19 -19 -107 5 -120 27 -14 151 -13 386 5 190 14 592
+35 681 35 41 0 42 -1 69 -57 49 -105 53 -118 59 -187 3 -38 12 -76 20 -85 8
+-9 14 -33 13 -53 -1 -26 6 -45 21 -61 12 -13 22 -34 22 -46 0 -13 6 -37 14
+-54 7 -18 20 -68 29 -112 21 -112 34 -158 56 -207 11 -24 24 -63 31 -88 6 -25
+23 -79 37 -120 14 -41 27 -88 28 -105 2 -16 13 -57 24 -90 11 -33 36 -105 55
+-160 18 -55 39 -113 44 -130 6 -16 20 -66 30 -110 41 -165 50 -189 81 -217 34
+-31 78 -37 87 -13 6 14 -14 165 -36 275 -5 25 -16 92 -25 150 -9 58 -23 132
+-30 165 -8 33 -21 116 -31 185 -9 69 -23 145 -30 170 -8 25 -14 61 -14 80 0
+19 -7 67 -15 105 -32 142 -46 222 -55 300 -5 44 -16 112 -25 150 -17 75 -29
+152 -39 253 l-6 62 128 0 c324 0 765 -48 855 -92 10 -5 17 -20 17 -39 0 -47
+37 -73 138 -97 48 -12 93 -22 99 -22 35 0 124 141 122 195 -3 125 -1 155 14
+193 17 43 17 43 -8 77 -23 29 -37 36 -116 54 -101 24 -159 27 -176 10 -8 -8
+-105 -13 -320 -15 -169 -1 -417 -5 -550 -9 -229 -7 -242 -6 -251 11 -19 37
+-29 328 -12 349 4 5 16 39 26 74 l17 64 -37 30 c-47 38 -70 81 -62 118 7 38
+-4 66 -45 111 -19 20 -42 46 -51 57 -22 26 -55 26 -138 -3z M3344 4680 c-89
+-93 -91 -96 -68 -134 14 -24 18 -56 21 -161 9 -429 2 -525 -41 -525 -23 0
+-320 -89 -401 -120 -200 -77 -572 -281 -582 -318 -17 -68 52 -60 309 39 274
+105 366 133 573 175 100 20 122 19 128 -8 3 -13 6 -146 6 -296 0 -299 15 -565
+37 -682 8 -41 14 -104 14 -140 0 -36 5 -83 10 -105 5 -22 11 -85 14 -140 13
+-225 38 -450 52 -473 18 -27 40 -28 54 -3 17 33 30 360 36 881 6 528 31 1001
+56 1025 15 15 403 56 548 58 224 3 274 -11 331 -94 14 -20 24 -23 119 -26 145
+-4 150 0 150 116 0 49 7 125 15 168 22 113 20 127 -21 173 l-36 40 -104 0
+c-108 0 -149 -9 -174 -39 -11 -14 -46 -23 -130 -35 -124 -19 -169 -27 -446
+-81 -219 -42 -224 -43 -224 -11 0 74 78 346 110 381 10 11 28 42 40 69 l22 48
+-37 38 c-37 37 -37 38 -30 101 l6 64 -47 38 c-39 31 -55 37 -93 37 -25 0 -69
+3 -97 6 l-51 6 -69 -72z M1145 4677 c-48 -27 -61 -40 -69 -68 -12 -42 -14
+-215 -3 -250 4 -14 3 -37 -2 -51 -5 -14 -6 -41 -2 -61 5 -19 5 -77 0 -128 -5
+-52 -11 -128 -13 -169 -3 -41 -14 -131 -26 -200 -11 -69 -25 -155 -29 -191 -5
+-37 -11 -72 -15 -77 -6 -11 -36 -142 -56 -247 -21 -109 -136 -501 -150 -510
+-3 -2 -71 -20 -151 -40 -232 -57 -219 -52 -235 -91 -12 -27 -12 -43 -3 -80 16
+-64 40 -76 159 -83 55 -3 104 -11 111 -18 14 -14 -21 -107 -127 -340 -41 -89
+-74 -166 -74 -170 0 -17 -181 -347 -244 -446 -87 -137 -88 -160 -2 -89 132
+109 272 329 496 777 l145 290 85 17 c47 9 135 29 197 44 61 14 117 24 123 22
+11 -3 30 -65 60 -203 103 -464 299 -898 377 -833 39 32 34 75 -21 201 -112
+254 -189 554 -219 851 -3 26 33 34 208 42 115 6 142 4 152 -7 13 -16 31 -128
+40 -251 l5 -76 -31 -17 c-64 -32 -67 -105 -7 -125 45 -15 47 -21 52 -185 5
+-136 12 -165 40 -165 30 0 45 49 60 187 18 171 13 159 70 167 70 9 267 60 442
+113 83 25 155 43 159 39 4 -3 -7 -21 -24 -39 -17 -17 -38 -45 -47 -62 -10 -16
+-33 -52 -52 -80 -46 -65 -168 -315 -189 -385 -9 -30 -22 -68 -30 -85 -7 -16
+-16 -43 -18 -60 -3 -16 -11 -48 -17 -70 -122 -423 89 -912 357 -828 75 24 84
+37 84 124 0 43 6 94 16 120 21 60 -3 104 -83 155 -118 75 -167 266 -124 479 7
+33 16 80 20 105 45 245 329 702 527 849 74 55 95 85 81 120 -31 84 -80 83
+-236 -6 -214 -121 -481 -235 -629 -267 -52 -12 -39 9 30 47 34 20 92 55 128
+79 36 23 79 51 95 61 126 76 326 240 482 394 34 35 89 81 122 103 68 46 73 53
+89 135 11 53 10 64 -6 95 -61 116 -137 124 -291 31 -37 -22 -89 -50 -117 -61
+-27 -12 -59 -25 -70 -30 -153 -70 -413 -164 -541 -195 -99 -25 -120 -27 -267
+-24 l-160 4 -20 -27 c-19 -25 -19 -31 -7 -83 7 -30 11 -56 9 -58 -2 -2 -81 -1
+-176 1 l-171 4 -6 86 c-3 48 -11 143 -17 212 -20 239 -22 705 -4 950 39 526
+38 550 -47 601 -21 13 -48 32 -60 42 -31 25 -66 21 -133 -16z m19 -1379 c3
+-13 10 -81 16 -153 6 -71 18 -174 27 -227 20 -124 20 -123 -64 -132 -37 -3
+-89 -9 -115 -12 -59 -8 -59 -8 -13 120 35 98 108 336 120 394 8 37 23 42 29
+10z m1400 -536 c-67 -63 -183 -158 -227 -186 l-29 -18 -35 42 c-24 28 -63 54
+-126 84 l-91 44 90 7 c49 3 109 10 134 15 100 20 198 41 255 54 93 22 94 20
+29 -42z m-453 -236 c45 -13 84 -27 86 -33 3 -9 -199 -153 -216 -153 -8 0 -40
+208 -32 216 7 7 64 -3 162 -30z M9670 4661 c-35 -9 -109 -153 -90 -176 7 -8
+18 -15 24 -15 6 0 27 -24 46 -53 19 -28 47 -68 63 -88 28 -36 68 -129 71 -164
+1 -23 -8 -25 -424 -100 -388 -70 -631 -127 -667 -156 -72 -60 124 -51 807 36
+283 36 341 37 350 5 33 -110 75 -362 130 -780 16 -123 29 -346 44 -745 13
+-350 20 -405 52 -405 30 0 41 52 55 255 9 148 14 998 6 1013 -3 4 -8 86 -11
+182 -3 96 -11 229 -17 295 -5 66 -11 147 -12 180 l-2 59 35 7 c19 4 94 10 165
+14 72 3 144 8 160 10 191 27 594 6 674 -35 32 -16 53 -20 75 -15 17 3 50 9 74
+12 33 4 46 11 57 32 7 15 20 33 29 40 11 10 12 19 4 42 -13 39 -4 71 32 113
+38 43 38 62 -4 106 -18 19 -38 48 -43 65 -12 38 -80 58 -170 51 -54 -5 -71
+-11 -120 -48 -32 -23 -74 -48 -95 -55 -74 -25 -490 -102 -798 -147 -98 -14
+-120 -10 -120 23 0 39 -55 198 -81 234 -16 22 -29 48 -29 58 0 12 -16 27 -41
+40 -23 11 -60 37 -82 58 -66 60 -88 68 -147 52z M22859 4592 c-90 -59 -95 -65
+-102 -125 -6 -40 -3 -54 17 -85 22 -35 23 -45 21 -190 -1 -84 -4 -154 -7 -157
+-9 -9 -239 -65 -428 -104 -252 -51 -251 -51 -230 -106 9 -24 13 -25 101 -25
+l91 0 -6 -27 c-4 -16 -11 -48 -15 -73 -5 -25 -14 -69 -20 -99 -6 -29 -8 -57
+-5 -62 3 -5 1 -41 -5 -80 -6 -39 -8 -76 -4 -82 4 -7 9 -50 10 -97 1 -47 2
+-103 3 -125 1 -22 1 -76 1 -120 0 -80 11 -194 29 -315 6 -36 12 -83 15 -105 8
+-71 54 -280 70 -320 25 -58 -69 56 -160 196 -122 188 -220 355 -288 494 -84
+173 -154 244 -238 245 -29 0 -95 -46 -105 -73 -11 -34 18 -155 52 -214 32 -57
+104 -199 130 -258 46 -105 84 -201 84 -213 0 -8 11 -27 25 -44 14 -16 25 -41
+25 -54 0 -14 6 -37 14 -52 7 -15 17 -43 21 -62 4 -19 16 -54 26 -77 25 -55 24
+-59 -8 -37 -177 116 -476 117 -760 3 -28 -11 -35 -11 -47 1 -19 22 -89 219
+-82 235 10 26 163 131 220 150 l56 19 28 -27 c42 -41 123 -30 191 24 66 53 70
+69 39 152 -24 63 -155 90 -286 58 l-52 -13 -53 36 c-28 20 -76 60 -105 89 -93
+93 -128 140 -256 342 -39 61 -62 128 -77 222 -13 81 -50 137 -94 146 -45 8
+-108 -17 -128 -51 -28 -48 -34 -233 -13 -369 33 -204 65 -368 87 -443 11 -41
+31 -117 44 -168 22 -87 45 -165 66 -220 16 -41 10 -66 -32 -127 -96 -141 -116
+-205 -76 -251 33 -38 55 -27 112 57 62 91 71 89 116 -36 48 -135 72 -177 116
+-214 55 -45 143 -39 162 11 31 81 281 167 486 168 28 0 104 -11 170 -25 165
+-34 204 -22 205 60 0 22 5 47 10 55 15 22 60 -31 60 -70 0 -61 69 -78 120 -30
+31 29 32 33 27 88 l-6 57 57 -65 c248 -284 351 -348 430 -267 40 41 50 100 28
+172 -8 28 -26 91 -40 140 -13 50 -32 117 -41 150 -17 60 -28 118 -44 230 -5
+33 -12 69 -15 80 -34 106 -39 738 -7 818 6 16 11 43 11 60 0 48 35 135 63 157
+27 21 39 72 26 106 -4 13 -1 45 9 83 14 51 14 65 3 82 -17 29 -5 37 59 41 l55
+3 3 -60 c1 -33 7 -73 12 -89 6 -16 10 -50 10 -76 0 -26 6 -63 14 -81 9 -21 11
+-41 6 -55 -8 -20 3 -146 16 -187 3 -10 12 -73 19 -140 30 -272 128 -881 156
+-974 11 -35 28 -97 39 -138 30 -118 72 -185 116 -185 36 0 37 13 5 141 -17 67
+-31 139 -31 162 0 22 -11 110 -25 196 -31 199 -56 378 -53 388 1 5 -2 42 -6
+83 -3 41 -9 118 -11 170 -3 52 -10 181 -16 285 -13 199 -13 293 -3 487 6 116
+6 117 33 122 77 15 410 28 591 23 256 -7 360 -28 360 -75 0 -40 53 -92 141
+-137 51 -26 94 -43 101 -39 7 4 28 10 47 14 26 4 42 15 61 44 15 21 40 44 57
+51 36 15 48 53 33 104 -13 48 -3 107 30 166 l28 50 -22 40 c-17 30 -40 49 -97
+80 -71 38 -78 40 -157 38 -57 -1 -91 -7 -108 -17 -27 -18 -95 -29 -334 -52
+-137 -13 -468 -63 -673 -103 -39 -7 -50 -6 -54 6 -10 27 16 88 57 130 52 55
+52 91 -2 147 -17 18 -19 30 -14 78 5 53 4 59 -18 73 -12 8 -28 26 -34 40 -9
+18 -19 25 -40 25 -16 0 -41 9 -55 20 -37 29 -56 25 -138 -28z m-1859 -1811
+c23 -27 60 -61 81 -75 21 -15 39 -33 39 -40 0 -13 -98 -91 -105 -84 -12 11
+-85 219 -85 241 0 21 34 1 70 -42z M17907 4390 c-41 -48 -97 -245 -139 -485
+-9 -56 -22 -141 -42 -290 -8 -55 -21 -143 -30 -195 -27 -161 -35 -212 -46
+-290 -6 -41 -18 -100 -26 -131 -8 -30 -14 -71 -14 -91 0 -19 -4 -48 -9 -64 -9
+-27 -37 -155 -63 -279 -18 -88 -87 -335 -109 -390 -4 -11 -11 -36 -15 -55 -3
+-19 -17 -55 -29 -80 -13 -25 -28 -64 -34 -86 -8 -30 -22 -49 -56 -73 -57 -41
+-60 -47 -40 -77 13 -20 14 -30 4 -57 -24 -67 18 -142 93 -166 53 -17 193 66
+193 116 1 17 6 37 12 45 7 8 12 47 11 98 -1 51 6 109 16 145 9 32 16 71 16 86
+0 14 9 64 21 110 11 46 32 149 46 229 14 80 29 168 34 195 5 28 16 103 24 168
+8 65 17 126 20 136 3 9 10 62 16 117 12 121 14 132 34 264 8 58 20 143 25 190
+14 117 51 357 70 450 5 25 14 80 20 123 5 43 14 86 18 95 5 9 14 44 21 77 7
+33 22 82 34 108 24 55 17 80 -25 85 -18 2 -33 -6 -51 -28z M32155 4380 c-11
+-5 -37 -9 -58 -9 -50 -1 -112 -51 -161 -130 -40 -65 -43 -86 -21 -118 10 -15
+13 -34 8 -69 -21 -172 -18 -573 6 -636 5 -15 10 -57 11 -95 1 -82 4 -140 15
+-254 9 -99 18 -89 -98 -109 -37 -7 -70 -11 -72 -8 -4 4 -9 53 -36 338 -6 63
+-14 121 -19 130 -4 8 -8 26 -8 40 -1 27 -16 144 -33 255 -6 39 -12 102 -13
+140 -3 104 -3 104 -41 122 -36 17 -38 21 -36 63 2 29 -33 80 -54 80 -8 0 -29
+13 -47 28 -33 28 -33 28 -166 26 -138 -2 -159 3 -173 45 -9 27 -81 31 -152 10
+-101 -31 -178 -118 -208 -233 -4 -17 -17 -67 -29 -111 -21 -81 -43 -348 -35
+-430 2 -22 9 -96 15 -165 6 -69 15 -159 21 -200 5 -41 11 -91 13 -110 3 -33
+24 -147 46 -250 5 -25 14 -78 20 -119 6 -40 14 -81 19 -90 4 -9 14 -50 21 -91
+7 -41 18 -96 26 -122 24 -87 -5 -59 -129 122 -108 159 -204 317 -299 495 -148
+275 -193 337 -249 349 -88 17 -106 -72 -45 -230 14 -36 98 -317 116 -389 4
+-16 19 -66 33 -110 14 -44 37 -120 52 -170 15 -49 42 -135 60 -190 18 -55 41
+-125 50 -155 28 -95 36 -109 88 -150 58 -46 80 -50 103 -15 16 25 15 29 -23
+113 -38 81 -52 123 -119 342 -14 47 -34 108 -44 135 -61 162 -51 207 20 95
+201 -315 382 -563 479 -657 100 -97 194 -27 162 120 -18 81 -40 202 -47 257
+-3 30 -12 80 -20 110 -8 30 -18 93 -23 140 -5 47 -16 146 -25 220 -40 364 -36
+723 10 904 27 105 96 216 134 216 16 0 90 -81 90 -98 0 -11 8 -26 18 -36 11
+-9 24 -34 31 -56 6 -21 23 -53 37 -70 19 -22 24 -37 20 -55 -4 -15 0 -37 8
+-54 8 -15 22 -59 31 -97 9 -38 25 -103 36 -144 10 -41 32 -138 49 -214 34
+-158 33 -162 -40 -186 -101 -33 -141 -104 -95 -170 34 -49 49 -54 122 -41 44
+9 60 8 69 -1 22 -25 38 -204 40 -446 2 -255 9 -302 45 -302 56 0 107 258 124
+633 8 174 3 167 134 167 90 0 101 -7 101 -69 0 -26 5 -75 11 -111 9 -62 15
+-108 38 -320 17 -153 20 -165 62 -229 38 -59 41 -61 83 -61 32 0 48 6 64 23
+22 23 22 28 22 365 0 387 -6 361 82 342 51 -10 54 -10 74 14 39 44 49 117 29
+203 -20 83 -33 94 -124 109 -22 4 -45 12 -49 18 -5 6 -12 87 -15 181 -5 152
+-4 175 14 228 18 52 18 60 5 71 -34 25 -7 385 33 449 70 111 85 181 45 216
+-20 18 -23 27 -18 59 5 33 2 41 -30 71 -20 19 -36 43 -36 53 0 10 -4 18 -8 18
+-4 0 -32 16 -62 35 -59 38 -56 37 -85 25z M16715 4004 c-270 -43 -568 -153
+-734 -270 -127 -89 -208 -192 -196 -248 3 -17 6 -48 5 -68 0 -21 3 -38 8 -38
+4 0 30 -28 58 -61 27 -34 86 -100 132 -148 46 -47 89 -98 95 -113 16 -35 106
+-108 133 -108 57 0 54 49 -11 169 -23 44 -51 103 -61 130 l-18 51 23 24 c13
+13 37 30 54 37 18 7 41 20 52 29 20 17 105 54 110 48 31 -36 182 -451 211
+-581 14 -62 14 -70 0 -86 -22 -24 -20 -33 13 -62 20 -17 31 -39 35 -70 4 -24
+14 -64 21 -89 7 -25 17 -65 20 -90 4 -25 13 -72 20 -105 7 -33 24 -109 36
+-168 22 -106 46 -157 74 -157 7 0 15 7 19 15 8 22 -20 300 -53 525 -10 69 -17
+127 -15 129 2 2 43 10 91 18 118 20 240 71 368 156 121 80 284 271 285 334 0
+10 9 29 20 43 11 14 20 34 20 45 1 11 9 43 18 72 17 51 17 75 -1 258 -2 17
+-18 60 -36 97 -63 127 -198 228 -366 274 -83 23 -314 27 -430 8z m452 -384
+c165 -54 206 -269 91 -471 -55 -97 -170 -212 -246 -246 -81 -37 -210 -75 -257
+-77 -39 -1 -39 -1 -52 49 -20 74 -79 261 -135 425 -71 209 -71 193 -1 217 32
+11 83 29 113 38 30 10 66 22 80 28 14 5 43 13 65 18 22 4 65 14 95 22 64 17
+191 15 247 -3z M21837 3823 c-14 -13 -6 -33 12 -33 19 0 35 23 24 34 -8 8 -28
+8 -36 -1z M33300 3815 c-25 -7 -81 -27 -125 -45 -235 -92 -467 -160 -618 -181
+l-89 -12 -34 -52 c-57 -86 -44 -154 38 -196 24 -12 47 -36 64 -66 15 -27 35
+-59 45 -73 47 -62 67 -99 88 -160 12 -36 28 -76 35 -90 21 -39 42 -159 30
+-174 -67 -92 -115 -178 -125 -226 -4 -19 -15 -62 -24 -95 -23 -83 -13 -255 20
+-340 13 -33 28 -77 35 -97 31 -99 188 -219 333 -255 108 -26 336 6 447 62 98
+50 210 118 210 127 0 4 25 19 56 33 l55 24 37 -19 c52 -28 103 -26 132 5 13
+14 30 25 37 25 8 0 25 24 38 53 29 65 22 127 -24 209 -17 30 -31 60 -31 66 0
+6 -11 27 -24 47 -13 19 -27 53 -31 75 -5 27 -18 51 -40 73 -48 46 -86 161
+-141 422 -8 39 -19 88 -24 110 -32 125 -54 340 -59 572 -1 43 -7 58 -35 92
+-19 23 -38 50 -41 60 -12 40 -140 54 -235 26z m53 -390 c-3 -26 26 -229 40
+-280 6 -22 9 -50 8 -62 -1 -12 2 -30 7 -40 5 -10 13 -50 17 -90 l7 -72 -29 9
+c-15 4 -57 23 -93 41 -36 17 -85 34 -110 36 -25 2 -71 6 -102 9 -49 5 -62 3
+-84 -15 -15 -12 -32 -21 -39 -21 -6 0 -20 -9 -30 -20 -28 -31 -52 -25 -60 13
+-10 45 -57 163 -120 299 -30 66 -27 78 18 78 46 0 185 26 237 44 25 9 56 16
+68 16 13 0 36 7 50 15 42 24 164 63 192 62 19 -2 24 -7 23 -22z m-177 -690
+c23 -8 61 -27 85 -43 24 -17 61 -37 82 -45 20 -9 37 -22 37 -29 0 -7 11 -24
+25 -38 13 -14 49 -50 79 -82 70 -71 66 -90 -38 -182 -202 -181 -370 -260 -470
+-222 -99 38 -163 159 -151 285 11 118 17 141 42 171 13 16 33 53 43 82 12 34
+26 57 42 64 121 60 151 65 224 39z M8325 3576 c-44 -18 -152 -67 -240 -108
+-200 -94 -325 -138 -418 -145 -94 -8 -142 -31 -157 -79 -12 -34 -9 -41 48
+-157 92 -185 122 -254 132 -300 5 -23 17 -73 26 -112 8 -38 20 -97 24 -130 5
+-33 15 -105 24 -160 9 -55 20 -138 26 -185 6 -47 15 -105 20 -130 5 -25 13
+-64 16 -87 5 -34 15 -50 49 -78 108 -88 121 -21 89 430 l-7 91 99 84 c55 46
+118 102 141 124 52 49 58 45 37 -30 -45 -165 -58 -327 -33 -419 5 -22 14 -57
+20 -77 21 -85 146 -234 234 -280 61 -32 164 -36 208 -9 44 27 49 40 36 101 -6
+28 -12 85 -13 128 -2 42 -4 80 -5 84 0 3 -16 11 -33 16 -173 52 -179 55 -209
+99 -77 111 -27 419 95 582 14 19 26 40 26 46 0 11 68 72 176 159 l30 25 1 -77
+c5 -520 22 -652 110 -838 69 -147 164 -215 308 -222 92 -4 187 21 235 63 75
+65 159 150 171 173 7 15 25 45 39 67 42 65 90 179 101 241 6 33 16 68 22 79
+16 31 30 152 32 280 1 133 -36 323 -75 377 -11 15 -20 36 -20 47 0 33 -88 140
+-159 192 -173 128 -295 157 -376 92 -22 -18 -56 -41 -75 -52 -63 -36 -134 -99
+-177 -158 -41 -55 -53 -77 -105 -190 l-22 -48 -6 38 c-13 74 -89 126 -156 108
+-53 -14 -173 -84 -267 -155 -85 -64 -121 -67 -66 -5 17 19 38 48 46 64 31 58
+127 201 164 242 66 73 74 150 19 204 -38 39 -83 38 -185 -5z m1015 -243 c20
+-21 46 -53 56 -72 84 -152 81 -139 90 -353 9 -197 -10 -296 -89 -488 -66 -158
+-162 -260 -245 -260 -114 0 -236 276 -249 560 l-6 136 37 91 c20 50 36 97 37
+104 1 39 115 217 157 247 51 37 125 72 150 72 15 0 39 -14 62 -37z m-1150
+-155 c-12 -18 -33 -58 -48 -88 -14 -30 -40 -75 -58 -100 -17 -25 -46 -72 -63
+-105 -59 -112 -88 -159 -98 -162 -10 -4 -59 103 -73 159 -4 18 -23 66 -41 106
+-39 85 -38 87 61 106 41 9 93 22 115 31 22 9 48 18 57 21 10 4 43 19 75 34 83
+41 102 40 73 -2z M9130 2978 c-64 -105 -109 -542 -63 -623 32 -58 89 -57 121
+2 36 66 38 606 2 635 -30 25 -37 23 -60 -14z M14038 3574 c-26 -8 -77 -35
+-115 -60 -90 -61 -257 -157 -324 -187 -358 -161 -369 -168 -369 -245 0 -49 38
+-102 130 -178 71 -59 190 -234 190 -280 0 -12 90 -89 113 -97 16 -5 0 -36 -53
+-102 -175 -219 -76 -447 228 -526 136 -36 464 -36 577 0 17 5 55 15 85 21 50
+11 81 23 175 65 17 7 42 16 57 19 15 4 52 30 82 59 53 50 55 54 61 117 l7 65
+-49 67 c-99 137 -139 185 -169 205 -24 17 -36 39 -63 119 -18 53 -59 152 -91
+218 -118 246 -181 399 -216 526 -9 36 -27 81 -39 100 -12 19 -24 43 -28 52
+-18 51 -102 69 -189 42z m57 -436 c7 -22 67 -163 104 -243 30 -63 71 -157 71
+-161 0 -9 -43 -3 -63 8 -45 24 -139 12 -214 -26 -38 -20 -74 -36 -80 -36 -6 0
+-38 -18 -72 -41 -33 -22 -66 -39 -71 -37 -6 2 -25 35 -43 74 -18 39 -45 85
+-60 103 -15 18 -27 37 -27 43 0 6 -23 39 -51 75 -28 36 -49 66 -47 68 2 1 39
+12 83 25 44 12 102 31 129 41 27 10 56 19 65 20 9 0 66 25 126 54 125 60 141
+64 150 33z m135 -594 c47 -14 67 -29 142 -106 129 -132 128 -141 -30 -206
+-230 -95 -531 -104 -611 -18 -86 91 135 335 304 336 16 0 37 5 45 11 18 12 75
+6 150 -17z M26550 3572 c-22 -7 -59 -42 -91 -86 -74 -101 -22 -196 236 -429
+441 -397 707 -720 740 -899 9 -48 -3 -52 -59 -20 -46 27 -296 267 -296 284 0
+5 -24 35 -53 66 -29 31 -61 69 -70 84 -10 15 -35 37 -56 48 -22 11 -42 28 -45
+38 -15 46 -48 62 -101 49 -87 -21 -136 -149 -70 -179 29 -13 35 -42 8 -34
+-155 45 -368 -25 -516 -168 -44 -42 -80 -76 -82 -76 -8 0 -54 81 -69 123 -22
+57 -20 60 73 120 87 57 143 77 218 77 39 0 78 7 107 20 44 18 46 21 46 61 0
+22 8 54 17 70 17 28 17 31 -7 75 -47 87 -85 104 -185 85 -77 -14 -158 33 -364
+213 -98 87 -202 208 -235 275 -51 106 -133 142 -189 83 l-29 -30 16 -89 c8
+-48 22 -113 31 -143 8 -30 28 -104 44 -165 27 -103 41 -143 126 -365 59 -152
+59 -158 25 -231 -44 -96 -48 -143 -15 -201 33 -60 69 -65 117 -17 40 39 47 35
+82 -47 120 -281 163 -331 247 -289 52 27 69 45 96 105 66 150 288 259 414 203
+130 -58 193 -53 204 14 19 110 45 130 77 61 10 -20 28 -43 40 -52 13 -9 34
+-25 48 -36 79 -66 163 -130 170 -130 5 0 24 -13 42 -29 18 -15 51 -37 73 -49
+22 -11 49 -30 59 -41 26 -29 112 -20 164 16 20 13 45 26 58 29 31 8 86 97 92
+151 15 135 -92 352 -286 577 -89 104 -94 117 -58 141 33 22 38 53 20 116 -18
+63 -93 181 -129 205 -13 9 -27 26 -31 37 -27 90 -412 357 -516 357 -10 0 -27
+4 -36 9 -23 11 -84 19 -102 13z m202 -196 c68 -34 135 -84 218 -163 25 -24 52
+-46 61 -48 9 -3 22 -19 29 -34 6 -16 22 -39 36 -51 23 -22 51 -87 41 -96 -2
+-3 -44 30 -93 73 -49 43 -155 134 -237 202 -179 150 -197 189 -55 117z m-884
+-473 c16 -16 54 -50 85 -76 32 -27 57 -52 57 -57 0 -9 -96 -80 -109 -80 -4 0
+-18 33 -31 73 -12 39 -29 81 -36 92 -16 22 -19 75 -4 75 5 0 22 -12 38 -27z
+M29634 3565 c-28 -7 -103 -40 -166 -73 -133 -72 -141 -71 -193 4 -39 57 -49
+62 -77 40 -24 -18 -23 -27 11 -85 37 -62 28 -79 -58 -110 -88 -32 -103 -48
+-108 -112 -4 -63 -4 -63 63 -112 126 -91 234 -346 198 -467 -8 -25 -14 -68
+-14 -96 0 -50 -2 -53 -53 -95 -121 -99 -161 -179 -162 -324 0 -104 2 -113 31
+-170 60 -114 185 -205 322 -234 108 -23 349 -3 407 33 11 7 40 18 65 25 25 7
+89 36 142 64 113 58 113 58 168 -40 58 -103 138 -117 217 -39 42 43 43 44 43
+112 0 61 -4 76 -34 126 -42 69 -138 259 -176 348 -15 36 -58 133 -94 215 -36
+83 -66 157 -66 165 0 9 -6 24 -14 35 -8 11 -21 43 -29 70 -9 28 -36 108 -61
+180 -25 71 -55 170 -67 220 -52 218 -74 268 -134 296 -25 12 -48 25 -51 30 -7
+12 -47 10 -110 -6z m24 -417 c11 -29 39 -105 62 -168 58 -160 65 -178 145
+-375 55 -134 57 -154 10 -121 -40 28 -172 74 -245 85 -115 19 -106 11 -113
+104 -10 141 -57 278 -133 392 -20 31 -34 58 -32 60 3 3 38 14 79 26 41 11 94
+27 119 34 78 24 85 21 108 -37z m-56 -754 c35 -9 90 -30 122 -48 79 -42 88
+-47 114 -73 12 -13 27 -23 34 -23 16 0 58 -40 58 -56 0 -11 -75 -63 -171 -117
+-123 -70 -309 -87 -396 -36 -139 80 -106 278 54 328 38 11 75 25 83 31 20 13
+28 13 102 -6z M11610 3561 c-51 -10 -54 -13 -101 -97 -39 -71 -41 -80 -35
+-130 6 -51 13 -74 65 -201 22 -53 90 -181 169 -317 29 -49 52 -90 52 -91 0 -2
+47 -90 105 -196 175 -321 299 -609 251 -582 -28 15 -169 178 -211 243 -100
+154 -116 181 -134 222 -10 24 -34 56 -54 70 -24 19 -37 38 -41 63 -20 105
+-196 44 -196 -67 0 -32 8 -47 43 -86 24 -26 58 -71 75 -99 17 -29 41 -63 52
+-75 11 -13 26 -30 33 -38 73 -90 96 -119 111 -144 28 -44 223 -229 264 -250
+20 -10 47 -27 59 -39 31 -28 97 -33 131 -10 15 10 36 22 46 28 10 5 22 17 26
+25 4 8 15 30 25 49 52 100 -55 400 -315 881 -323 599 -334 620 -312 634 32 20
+205 -142 296 -279 101 -150 138 -230 138 -297 -1 -65 34 -125 87 -153 31 -15
+42 -42 56 -130 48 -305 218 -546 440 -626 167 -60 323 -14 472 138 45 46 85
+93 89 106 3 12 17 36 29 53 58 77 68 145 30 202 -15 22 -25 51 -25 71 0 21 -8
+43 -20 56 -10 11 -28 30 -39 42 -18 20 -22 21 -68 9 -96 -26 -132 -65 -169
+-187 -39 -126 -131 -229 -205 -229 -111 1 -243 155 -309 360 -62 194 -24 544
+68 620 37 30 62 38 62 20 0 -5 15 -27 34 -48 19 -21 38 -51 42 -67 4 -17 15
+-40 25 -53 10 -13 16 -29 13 -36 -3 -7 7 -47 21 -89 14 -41 25 -89 25 -105 0
+-18 11 -43 26 -61 15 -18 28 -50 33 -81 4 -28 10 -52 12 -53 49 -33 136 -33
+193 -1 54 30 53 28 60 194 4 69 8 136 11 150 3 14 10 68 15 120 11 105 41 255
+59 288 19 35 13 69 -15 91 -45 35 -90 -11 -151 -155 -28 -66 -39 -83 -47 -72
+-6 7 -24 22 -41 32 -16 11 -37 29 -46 40 -85 107 -322 182 -390 123 -111 -94
+-187 -202 -225 -318 -20 -60 -23 -60 -54 -2 -51 97 -159 250 -211 299 -99 93
+-233 194 -258 194 -5 0 -33 11 -63 25 -29 14 -57 24 -63 24 -5 -1 -26 -4 -45
+-8z M23187 3558 c-59 -32 -68 -215 -21 -438 15 -71 29 -133 89 -383 24 -97 25
+-114 16 -183 -19 -132 -17 -140 54 -241 8 -12 24 -23 36 -25 18 -2 26 -21 53
+-114 61 -211 79 -242 156 -269 38 -14 45 -14 60 0 9 8 21 15 27 15 25 0 66 47
+108 125 75 137 190 226 335 259 123 27 190 4 330 -114 98 -83 124 -98 184
+-106 49 -7 86 17 86 56 0 11 12 49 26 86 34 85 26 118 -48 190 -166 161 -388
+236 -596 200 -152 -26 -291 -96 -399 -199 -34 -32 -66 -56 -72 -53 -5 4 -25
+55 -45 114 -19 59 -40 121 -47 138 -11 27 -9 37 13 85 43 95 195 239 252 239
+42 0 106 40 106 66 0 14 7 38 15 54 15 28 14 32 -15 83 -40 72 -56 84 -116 89
+-44 4 -67 15 -150 73 -55 37 -103 73 -109 79 -16 19 -138 112 -165 126 -14 7
+-34 20 -45 30 -24 21 -95 32 -118 18z m361 -439 c-6 -15 -118 -129 -126 -129
+-5 0 -21 48 -36 108 -15 59 -34 126 -43 150 -30 85 -10 80 102 -25 58 -54 104
+-101 103 -104z M10466 3528 c-9 -13 -16 -43 -16 -69 0 -25 -5 -71 -11 -100 -7
+-33 -12 -179 -13 -369 l-1 -315 -48 -99 c-84 -172 -104 -263 -69 -307 28 -33
+47 -19 89 66 58 116 63 104 83 -198 7 -94 16 -189 21 -209 10 -40 50 -78 81
+-78 34 0 95 49 119 98 85 167 302 290 416 235 39 -18 113 -105 113 -132 0 -62
+102 -141 184 -141 63 0 75 10 87 78 5 28 25 71 49 105 47 69 46 60 17 119 -57
+117 -218 238 -355 267 -166 35 -335 -20 -494 -159 -31 -28 -59 -50 -61 -50
+-15 0 -46 228 -50 367 -2 58 0 64 33 99 100 105 262 170 398 161 84 -6 152 9
+152 34 0 4 13 23 29 41 47 55 46 153 -2 206 -9 10 -17 24 -17 30 0 28 -53 52
+-115 52 -81 0 -118 -14 -147 -56 -38 -56 -57 -48 -175 73 -72 74 -115 128
+-140 175 -49 94 -121 128 -157 76z m242 -412 c51 -49 52 -54 5 -86 -21 -14
+-54 -40 -75 -58 -20 -19 -42 -31 -48 -27 -11 7 -15 247 -3 258 8 8 62 -31 121
+-87z M3927 3460 c-32 -28 -34 -35 -41 -112 -23 -265 -24 -470 -1 -799 l5 -76
+-50 -77 c-70 -107 -140 -250 -140 -285 0 -40 39 -86 66 -77 10 4 43 42 72 86
+51 76 72 95 72 68 1 -14 33 -194 48 -266 6 -27 22 -57 43 -79 33 -34 36 -35
+89 -29 61 7 74 15 180 101 166 135 369 210 560 208 133 -2 160 11 160 73 0 17
+9 57 20 89 25 73 25 84 -4 116 -117 133 -516 64 -797 -138 -27 -19 -55 -33
+-63 -30 -15 6 -41 182 -30 210 3 10 52 48 108 85 114 76 224 115 354 126 79 7
+112 19 112 40 0 8 7 19 15 26 27 23 19 88 -15 120 -16 15 -30 33 -30 39 0 24
+-40 32 -110 22 -52 -7 -77 -6 -107 4 -21 8 -45 14 -53 15 -8 0 -40 20 -70 45
+-30 25 -58 45 -61 45 -13 0 -110 164 -130 219 -11 31 -22 83 -24 115 -6 74
+-24 102 -81 127 -58 24 -57 24 -97 -11z m202 -567 c45 -34 114 -103 109 -109
+-22 -21 -132 -83 -138 -77 -9 10 -22 213 -13 213 3 0 22 -12 42 -27z M19956
+3461 c-3 -4 -34 -19 -68 -31 -35 -13 -74 -31 -88 -41 -14 -9 -52 -30 -84 -45
+-73 -34 -309 -264 -344 -334 -12 -25 -35 -65 -50 -90 -15 -25 -34 -61 -41 -80
+-8 -19 -24 -57 -36 -85 -13 -27 -28 -88 -35 -135 -6 -47 -16 -101 -22 -120
+-17 -54 -13 -225 7 -295 42 -146 146 -257 316 -338 60 -29 107 -56 106 -60 -1
+-4 -41 -21 -89 -37 -110 -37 -223 -100 -302 -169 -33 -29 -71 -60 -82 -68 -33
+-21 -128 -150 -161 -218 -138 -277 -98 -576 111 -834 153 -190 414 -322 633
+-321 244 2 519 129 700 324 76 82 91 127 58 176 -15 22 -24 48 -23 69 1 41
+-56 97 -109 107 -56 11 -129 -44 -165 -125 -74 -166 -255 -308 -440 -345 -266
+-54 -558 138 -650 428 -33 103 -33 271 -1 337 13 26 23 52 23 58 0 37 69 139
+148 220 73 74 101 95 172 129 85 39 245 76 330 74 19 0 47 6 63 15 54 27 301
+-7 355 -50 7 -6 35 -20 61 -33 27 -12 60 -36 72 -54 13 -17 39 -41 57 -52 18
+-11 45 -39 59 -62 35 -55 51 -65 101 -66 50 0 117 59 127 114 6 32 -15 112
+-40 152 -19 29 -71 167 -89 234 -8 30 -26 93 -39 140 -54 186 -78 373 -74 569
+3 150 -11 299 -38 411 -9 36 -23 97 -31 135 -9 39 -24 95 -34 125 -10 30 -22
+75 -25 99 -9 52 -22 67 -114 120 -82 48 -210 78 -225 52z m158 -150 c32 -17
+41 -49 65 -216 7 -44 20 -132 31 -195 10 -63 23 -145 29 -181 23 -139 8 -227
+-62 -366 -55 -109 -177 -213 -250 -213 -60 0 -258 108 -310 169 -42 50 -65
+143 -73 287 -11 222 17 360 98 476 10 14 18 31 18 38 0 21 119 129 172 156
+135 68 217 82 282 45z m209 -1293 c15 -63 48 -281 43 -285 -10 -10 -256 93
+-256 107 0 3 22 22 49 42 27 21 62 54 77 75 38 52 66 83 75 83 4 0 9 -10 12
+-22z M6895 3417 c-216 -79 -348 -247 -422 -537 -30 -116 -43 -394 -24 -504 28
+-160 99 -311 185 -396 56 -54 56 -55 4 -78 -24 -11 -65 -35 -93 -54 -27 -19
+-72 -49 -98 -67 -78 -54 -217 -192 -251 -249 -17 -30 -41 -70 -53 -90 -72
+-120 -88 -183 -87 -347 1 -104 5 -131 29 -200 124 -361 524 -619 892 -576 235
+28 450 143 600 322 36 43 76 85 89 94 29 19 86 128 78 149 -3 8 -16 22 -30 30
+-18 13 -22 22 -18 44 10 52 -109 147 -186 147 -36 0 -54 7 -87 34 -22 18 -49
+31 -59 29 -22 -4 -174 -183 -174 -205 0 -8 25 -38 56 -66 44 -41 54 -56 49
+-74 -4 -16 3 -32 25 -56 40 -46 38 -57 -17 -103 -141 -116 -265 -163 -428
+-164 -351 -1 -699 362 -656 685 12 83 67 243 97 276 8 8 14 19 14 23 0 23 189
+187 264 229 78 45 223 89 339 104 46 6 160 -22 207 -52 103 -64 180 -125 180
+-141 0 -28 38 -89 69 -112 38 -27 61 -23 112 23 67 59 80 95 80 217 0 60 -3
+113 -6 118 -3 4 -10 52 -16 106 -6 55 -12 106 -13 114 -2 8 -6 40 -10 70 -28
+208 -48 334 -57 357 -5 14 -8 32 -5 38 2 7 -2 57 -10 111 -9 55 -19 131 -24
+169 -5 39 -14 99 -20 135 -6 36 -9 89 -5 118 5 41 2 65 -13 105 -11 29 -23 63
+-26 77 -9 42 -71 105 -126 129 -100 43 -262 51 -355 18z m233 -283 l44 -26 -6
+-51 c-4 -28 -2 -89 3 -136 6 -48 20 -160 31 -251 12 -91 24 -181 28 -200 37
+-168 -144 -415 -309 -423 -41 -2 -45 0 -58 31 -10 21 -24 34 -40 38 -74 15
+-97 46 -135 188 -25 96 -29 303 -6 406 25 115 104 297 156 359 69 82 209 113
+292 65z m172 -1191 c4 -37 6 -70 4 -72 -6 -6 -103 41 -115 56 -13 15 80 107
+95 93 4 -5 12 -39 16 -77z M28650 3346 c-25 -7 -125 -52 -223 -100 -199 -97
+-313 -144 -372 -152 -70 -10 -102 -24 -116 -50 -26 -50 -1 -135 47 -156 37
+-17 98 -145 123 -259 23 -101 50 -415 45 -517 -5 -108 69 -155 140 -89 40 38
+42 54 37 233 l-3 81 63 45 c118 84 231 159 245 165 19 7 18 -26 -1 -53 -17
+-25 -65 -177 -89 -280 -91 -400 30 -849 242 -893 80 -17 112 -13 167 17 57 31
+55 19 35 192 -16 142 -22 154 -85 158 -63 4 -77 17 -115 107 -64 155 -47 449
+36 620 13 28 24 58 24 67 0 10 12 32 28 50 15 18 32 40 37 49 58 91 91 130
+143 168 58 42 92 88 92 127 0 26 -56 109 -84 124 -53 28 -196 -13 -387 -111
+-41 -21 -79 -39 -82 -39 -17 0 -4 35 28 77 19 25 35 49 35 54 0 4 33 46 73 93
+96 112 114 170 72 231 -38 57 -67 65 -155 41z m-200 -391 c0 -8 -15 -35 -32
+-59 -18 -24 -57 -82 -87 -130 -29 -47 -57 -86 -62 -86 -5 0 -18 19 -28 43 -34
+74 -63 149 -59 152 2 2 37 15 78 29 41 13 98 34 125 45 61 24 65 25 65 6z"/></g></svg>
+      </div>
+      <h1 class="capa-titulo">
+        <span class="linha"><span>Savoi</span></span>
+        <span class="linha"><span class="destaque-txt">Tintas</span></span>
+      </h1>
+      <p class="capa-texto aparecer">Blackwork, dark art, referências orientais e formas orgânicas que se misturam ao corpo.</p>
+      <p class="capa-texto aparecer">Trabalhos autorais, pensados pra cada corpo e cada ideia.</p>
+      <div class="capa-acoes aparecer">
+        <a class="botao arrastavel" href="https://api.whatsapp.com/send/?phone=5531982027033&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Vamo trocar uma ideia</a>
+      </div>
     </div>
-    <span class="dica-rolar">role</span>
+    <span class="dica-rolar aparecer"><span class="dica-rolar-linha"></span>role</span>
   </section>
 
-  <div class="faixa" aria-hidden="true">
-    <div class="faixa-trilha">
-      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
-      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>sem flash<em>*</em>sem repetição<em>*</em>belo horizonte<em>*</em></span>
+  <div class="goteira" aria-hidden="true"></div>
+
+  <div class="faixa arrastavel" aria-hidden="true" id="faixa">
+    <div class="faixa-trilha" id="faixa-trilha">
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>referências orientais<em>*</em>formas orgânicas<em>*</em>trabalhos autorais<em>*</em>peça única<em>*</em>belo horizonte<em>*</em></span>
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>referências orientais<em>*</em>formas orgânicas<em>*</em>trabalhos autorais<em>*</em>peça única<em>*</em>belo horizonte<em>*</em></span>
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>referências orientais<em>*</em>formas orgânicas<em>*</em>trabalhos autorais<em>*</em>peça única<em>*</em>belo horizonte<em>*</em></span>
+      <span><em>*</em>blackwork<em>*</em>dark art<em>*</em>referências orientais<em>*</em>formas orgânicas<em>*</em>trabalhos autorais<em>*</em>peça única<em>*</em>belo horizonte<em>*</em></span>
     </div>
   </div>
 
-  <section class="secao sobre aparecer">
-    <div class="sobre-foto">
+  <section id="sobre" class="secao sobre">
+    <div class="sobre-foto" id="sobre-foto">
       <div class="polaroid" style="transform:rotate(-3deg)">
         <div class="polaroid-moldura video-moldura">
           <video id="video-sobre" poster="imagens/about.jpg" preload="metadata" playsinline>
@@ -601,125 +466,186 @@
       </div>
       <div class="fita" style="width:70px;top:-10px;left:20px;transform:rotate(-8deg)"></div>
     </div>
-    <p class="sobre-texto">Não tô aqui pra te convencer a tatuar comigo. Quero que você se identifique com o meu trabalho — com o jeito que eu vou enxergar sua ideia. Blackwork, oriental, arte contemporânea: peças exclusivas, sob encomenda, sem flash e sem repetição.</p>
-    <p class="sobre-citacao">"Originalidade é fragmentação de personalidade."</p>
+    <div>
+      <h2 class="sobre-titulo revelar"><span class="revelar-item">Não tô aqui pra te convencer a tatuar comigo. Quero que você se identifique com meu trabalho.</span></h2>
+      <p class="sobre-texto revelar"><span class="revelar-item">Meu trabalho é pra quem já olhou pras minhas tattoos e pensou:</span></p>
+      <p class="sobre-citacao revelar"><span class="revelar-item">"É isso que eu quero."</span></p>
+      <p class="sobre-texto revelar"><span class="revelar-item">Trabalho principalmente com blackwork, dark art, referências orientais e formas orgânicas.</span></p>
+      <p class="sobre-texto revelar"><span class="revelar-item">Gosto de explorar essas referências de jeitos diferentes em cada projeto, sem ficar preso a uma estética única.</span></p>
+      <p class="sobre-texto revelar"><span class="revelar-item">A ideia é pegar o que você tem em mente e construir a tattoo junto com você.</span></p>
+      <p class="sobre-citacao revelar"><span class="revelar-item">"Originalidade é fragmentação de personalidade."</span></p>
+    </div>
   </section>
+
+  <div class="goteira goteira-fina goteira-clara" aria-hidden="true"></div>
 
   <section id="portfolio" class="secao">
-    <div class="portfolio-cabecalho aparecer">
-      <h2 class="secao-titulo">Portfólio</h2>
-      <a href="https://www.instagram.com/street_art.tattoo" target="_blank" rel="noopener" style="font-size:11px;color:var(--texto-fraco)">@street_art.tattoo</a>
+    <div class="secao-cabecalho">
+      <div>
+        <h2 class="secao-titulo revelar"><span class="revelar-item">Confira algumas das desgr*çeiras que já saíram daqui.</span></h2>
+        <p class="portfolio-subtitulo">Dê uma olhada no estrago.</p>
+      </div>
+      <a href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener" class="portfolio-insta">@savoi.ink</a>
     </div>
-    <div class="portfolio-grade aparecer">
-      <div class="polaroid" style="transform:rotate(-2deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-1.jpg" alt="peça blackwork 01" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(1.5deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-2.jpg" alt="peça blackwork 02" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(-1deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-3.jpg" alt="peça blackwork 03" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(2deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-4.jpg" alt="peça blackwork 04" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(-2.5deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-5.jpg" alt="peça blackwork 05" width="900" height="1200" loading="lazy"></div></div>
-      <div class="polaroid" style="transform:rotate(1deg)"><div class="polaroid-moldura"><img src="imagens/portfolio-6.jpg" alt="peça dark art 06" width="900" height="1200" loading="lazy"></div></div>
+    <div class="carrossel">
+      <div class="carrossel-trilha" id="carrossel-trilha">
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 01 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/01.jpg" alt="peça dark art 01" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 02 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/02.jpg" alt="peça dark art 02" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 03 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/03.jpg" alt="peça dark art 03" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 04 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/04.jpg" alt="peça formas orgânicas 04" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 05 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/05.jpg" alt="peça blackwork 05" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 06 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/06.jpg" alt="peça blackwork 06" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 07 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/07.jpg" alt="peça blackwork 07" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 08 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/08.jpg" alt="peça formas orgânicas 08" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 09 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/09.jpg" alt="peça blackwork 09" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 10 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/10.jpg" alt="peça blackwork 10" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 11 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/11.jpg" alt="peça formas orgânicas 11" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 12 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/12.jpg" alt="peça formas orgânicas 12" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 13 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/13.jpg" alt="peça referências orientais 13" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 14 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/14.jpg" alt="peça dark art 14" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 15 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/15.jpg" alt="peça dark art 15" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 16 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/16.jpg" alt="peça blackwork 16" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 17 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/17.jpg" alt="peça formas orgânicas 17" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 18 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/18.jpg" alt="peça dark art 18" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 19 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/19.jpg" alt="peça blackwork 19" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 20 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/20.jpg" alt="peça dark art 20" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 21 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/21.jpg" alt="peça dark art 21" loading="lazy"></div>
+        </div>
+        <div class="peca arrastavel" role="button" tabindex="0" aria-label="Ver peça 22 em tamanho maior">
+          <div class="peca-moldura revelar"><img class="revelar-item" src="imagens/portfolio/22.jpg" alt="peça blackwork 22" loading="lazy"></div>
+        </div>
+      </div>
+      <button type="button" class="carrossel-seta carrossel-anterior arrastavel" aria-label="Peça anterior">‹</button>
+      <button type="button" class="carrossel-seta carrossel-proximo arrastavel" aria-label="Próxima peça">›</button>
     </div>
   </section>
 
-  <section id="processo" class="secao processo aparecer">
-    <h2 class="secao-titulo">Como funciona</h2>
+  <section id="processo" class="secao processo">
+    <h2 class="secao-titulo revelar" style="margin-bottom:56px"><span class="revelar-item">Como funciona</span></h2>
     <div class="etapas">
+      <div class="etapas-linha"><div class="etapas-linha-preenchida" id="etapas-linha-preenchida"></div></div>
+
       <div class="etapa">
-        <span class="etapa-numero" style="transform:rotate(-3deg)">01</span>
-        <span class="etapa-titulo">Referência</span>
-        <span class="etapa-texto">Manda sua ideia e referências pelo direct ou WhatsApp.</span>
+        <span class="etapa-numero">01</span>
+        <div class="etapa-corpo">
+          <h3 class="etapa-titulo">Primeiro contato</h3>
+          <p class="etapa-gancho">Tudo começa pela ideia.</p>
+          <p class="etapa-texto">No primeiro contato, me manda o que você está imaginando, referências que tenham a ver com o projeto, o local onde pretende tatuar e o tamanho aproximado.</p>
+          <p class="etapa-texto">Não precisa chegar com tudo pronto. Pode me contar do seu jeito, mandar imagens, referências ou qualquer coisa que ajude a mostrar o que você está imaginando.</p>
+          <p class="etapa-texto">A partir disso, a gente começa a conversar sobre o projeto.</p>
+        </div>
       </div>
+
       <div class="etapa">
-        <span class="etapa-numero" style="transform:rotate(2deg)">02</span>
-        <span class="etapa-titulo">Desenho</span>
-        <span class="etapa-texto">Fecho o desenho exclusivo pra sua peça, sem repetir em ninguém.</span>
+        <span class="etapa-numero">02</span>
+        <div class="etapa-corpo">
+          <h3 class="etapa-titulo">Desenvolvimento</h3>
+          <p class="etapa-gancho">Essa é a parte mais importante do processo.</p>
+          <p class="etapa-texto">O desenvolvimento da tattoo é feito junto com você, a partir da nossa conversa e das referências que você trouxe. A gente troca ideia, testa possibilidades e vai construindo o projeto até chegar em algo que faça sentido pra você e pro meu trabalho.</p>
+          <p class="etapa-texto">É um processo que exige tempo e paciência, mas é justamente isso que faz a tattoo ficar mais alinhada com você e muito mais representativa.</p>
+        </div>
       </div>
+
       <div class="etapa">
-        <span class="etapa-numero" style="transform:rotate(-2deg)">03</span>
-        <span class="etapa-titulo">Sessão</span>
-        <span class="etapa-texto">Agenda no estúdio em BH e a gente risca.</span>
+        <span class="etapa-numero">03</span>
+        <div class="etapa-corpo">
+          <h3 class="etapa-titulo">Diária e meia diária</h3>
+          <p class="etapa-texto">Trabalho com diárias e meias diárias, definidas de acordo com a dimensão e a complexidade de cada projeto.</p>
+          <p class="etapa-texto">A primeira sessão já é uma sessão de criação e tatuagem. O desenvolvimento da arte acontece junto com você e, a partir daí, a tattoo já começa a tomar forma na pele.</p>
+        </div>
+      </div>
+
+      <div class="etapa">
+        <span class="etapa-numero">04</span>
+        <div class="etapa-corpo">
+          <h3 class="etapa-titulo">A sessão</h3>
+          <p class="etapa-texto">A sessão acontece no Street Art, um estúdio com uma atmosfera que combina muito com o meu trabalho. É um espaço carregado de arte, referências e personalidade — o Street Art tem uma identidade própria, e isso faz parte da experiência.</p>
+          <p class="etapa-texto">A ideia é que a experiência não seja só sentar numa maca e esperar a tattoo acabar. Você chega, troca ideia, participa do processo e passa algumas horas dentro desse universo junto comigo.</p>
+          <p class="etapa-texto">Tudo isso com a estrutura necessária pra que a sessão seja confortável do começo ao fim.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contato" class="secao contato aparecer">
-    <img class="contato-fundo" src="imagens/hero-bg.jpg" alt="" width="900" height="900" loading="lazy">
+  <section id="contato" class="secao contato">
+    <img class="contato-fundo" src="imagens/rodape-bg.jpg" alt="" aria-hidden="true">
     <div class="contato-sobreposicao"></div>
-    <h2 class="contato-titulo">Marca sua tattoo, sô</h2>
+    <img class="mancha-marca" src="imagens/favicon.png" alt="" aria-hidden="true" style="top:auto;left:auto;right:-60px;bottom:-80px">
+    <h2 class="contato-titulo revelar"><span class="revelar-item">Marca sua tattoo, sô</span></h2>
     <p class="contato-texto">Manda mensagem com sua ideia, referência de estilo e disponibilidade pra orçamento. Vamo trocar uma ideia.</p>
     <div class="contato-acoes">
-      <a class="botao" href="https://api.whatsapp.com/send/?phone=553196937655&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Orçamento no WhatsApp</a>
-      <a class="botao botao-contorno" href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a>
+      <a class="botao botao-grande arrastavel" href="https://api.whatsapp.com/send/?phone=5531982027033&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Orçamento no WhatsApp</a>
+      <a class="botao botao-contorno arrastavel" href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a>
     </div>
     <span class="contato-endereco">Rua Ceará 621 — Santa Efigênia, Belo Horizonte MG</span>
   </section>
 </main>
 
-<footer class="rodape">
-  <span>Savoi — tatuador · <a href="https://www.instagram.com/savoi.ink" target="_blank" rel="noopener">@savoi.ink</a></span>
-  <span>Rua Ceará 621, Santa Efigênia — Belo Horizonte MG</span>
+<footer>
+  <div class="outro">
+    <video class="outro-fundo" id="outro-fundo" poster="imagens/rodape-bg.jpg" autoplay muted loop playsinline webkit-playsinline preload="metadata" aria-hidden="true">
+      <source src="videos/outro.mp4" type="video/mp4">
+    </video>
+    <div class="outro-sobreposicao"></div>
+    <h2 class="outro-titulo revelar"><span class="revelar-item">Curtiu<br>o que viu?</span></h2>
+    <p class="outro-texto">Se já tem uma ideia na cabeça, vamo trocar uma ideia.</p>
+    <a class="botao botao-grande arrastavel outro-botao" href="https://api.whatsapp.com/send/?phone=5531982027033&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Vamo trocar uma ideia</a>
+  </div>
 </footer>
 
-<script>
-  // deixa o menu com sombra depois que rola um pouco a página
-  var menu = document.querySelector('.menu');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 8) {
-      menu.classList.add('rolado');
-    } else {
-      menu.classList.remove('rolado');
-    }
-  });
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Peça em tamanho maior">
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="">
+    <button type="button" class="lightbox-fechar arrastavel" id="lightbox-fechar" aria-label="Fechar">fechar ×</button>
+    <button type="button" class="lightbox-nav lightbox-anterior arrastavel" id="lightbox-anterior" aria-label="Peça anterior">‹</button>
+    <button type="button" class="lightbox-nav lightbox-proximo arrastavel" id="lightbox-proximo" aria-label="Próxima peça">›</button>
+  </div>
+</div>
 
-  // mostra as seções com um fade quando elas entram na tela
-  if ('IntersectionObserver' in window) {
-    var observador = new IntersectionObserver(function (itens) {
-      for (var i = 0; i < itens.length; i++) {
-        var item = itens[i];
-        if (item.isIntersecting) {
-          item.target.classList.add('visivel');
-          observador.unobserve(item.target);
-        }
-      }
-    }, { threshold: 0.15 });
-
-    var elementosAparecer = document.querySelectorAll('.aparecer');
-    elementosAparecer.forEach(function (elemento) {
-      observador.observe(elemento);
-    });
-  } else {
-    // navegador antigo que não tem IntersectionObserver, mostra tudo direto
-    document.querySelectorAll('.aparecer').forEach(function (elemento) {
-      elemento.classList.add('visivel');
-    });
-  }
-
-  // vídeo da seção "sobre" com botão de tocar personalizado
-  var videoSobre = document.getElementById('video-sobre');
-  var botaoTocar = document.querySelector('.botao-tocar');
-
-  if (videoSobre && botaoTocar) {
-    botaoTocar.addEventListener('click', function () {
-      videoSobre.controls = true;
-      videoSobre.play();
-      botaoTocar.classList.add('escondido');
-    });
-
-    videoSobre.addEventListener('pause', function () {
-      if (videoSobre.currentTime > 0 && !videoSobre.ended) {
-        botaoTocar.classList.remove('escondido');
-      }
-    });
-
-    videoSobre.addEventListener('play', function () {
-      botaoTocar.classList.add('escondido');
-    });
-
-    videoSobre.addEventListener('ended', function () {
-      videoSobre.controls = false;
-      botaoTocar.classList.remove('escondido');
-    });
-  }
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
