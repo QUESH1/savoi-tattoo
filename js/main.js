@@ -391,14 +391,30 @@
       videos.forEach(tentarTocar);
     }
 
-    // navegadores mais restritos só liberam o play() depois de um gesto do usuário
+    // navegadores mais restritos só liberam o play() depois de um gesto do
+    // usuário. Antes isso só tentava de novo UMA vez pra página inteira
+    // ({once:true}) — se essa primeira tentativa acontecesse antes do vídeo
+    // estar perto da tela (ex: primeira rolagem lá no topo da página), ela
+    // não fazia nada e o gatilho já tinha sido consumido, então nenhuma
+    // rolagem seguinte tentava de novo. Agora continua tentando a cada
+    // interação até o vídeo realmente começar a tocar.
+    var eventosGesto = ['pointerdown', 'touchstart', 'keydown', 'scroll'];
     function retentarNoGesto() {
       videos.forEach(function (v) {
         if (v.paused && v.getBoundingClientRect().top < window.innerHeight) tentarTocar(v);
       });
     }
-    ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (evento) {
-      document.addEventListener(evento, retentarNoGesto, { once: true, passive: true });
+    eventosGesto.forEach(function (evento) {
+      document.addEventListener(evento, retentarNoGesto, { passive: true });
+    });
+    videos.forEach(function (v) {
+      v.addEventListener('playing', function () {
+        if (videos.every(function (v2) { return !v2.paused; })) {
+          eventosGesto.forEach(function (evento) {
+            document.removeEventListener(evento, retentarNoGesto);
+          });
+        }
+      });
     });
   }
 
